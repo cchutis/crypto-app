@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get 'wallets/index'
   get 'wallets/show'
   get 'banks/index'
-  get 'users/index'
+resources :users, only: [:index, :create]
   get '/signup', to: "users#new", as: "signup"
+  get "/profile", to: "users#show", as: "profile"
   get 'cryptos/index'
   get 'cryptos/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
