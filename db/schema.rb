@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
   end
 
   create_table "cryptos", force: :cascade do |t|
-    t.string "value"
     t.string "name"
     t.string "description"
     t.string "logo"
     t.string "symbol"
+    t.integer "value"
     t.integer "wallet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
