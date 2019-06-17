@@ -1,2 +1,6 @@
-<h1>Cryptos#index</h1>
-<p>Find me in app/views/cryptos/index.html.erb</p>
+<h1>Crypto</h1>
+<%@cryptos.each do |crypto|%>
+<li>
+<%=link_to "#{crypto.name}", crypto_path(crypto)%>
+</li>
+<%end%>
