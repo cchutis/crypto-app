@@ -1,6 +1,6 @@
 <p>Welcome to</p>
-<img src="../../assets/images/crypto.png" alt="">
-
+<%= image_tag("crypto.svg") %>
+<br><br>
 <%= form_for @user do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, :class => 'text-field'%>
