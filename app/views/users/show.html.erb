@@ -1,0 +1,13 @@
+<%= @user.name %>
+<br>
+username: <%= @user.username %>
+<br>
+Email: <%= @user.email %>
+<br>
+Phone Number: <%= @user.phone %>
+<br>
+username: <%= @user.username %>
+<br>
+Wallet: $<%= @user.wallet %>
+
+  <%= button_to "Add Funds", '/add_funds', :method => :get %>

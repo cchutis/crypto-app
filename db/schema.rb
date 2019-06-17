@@ -30,14 +30,11 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
   end
 
   create_table "trades", force: :cascade do |t|
-    t.string "crypto"
-    t.integer "number"
-    t.integer "cash"
     t.integer "user_id"
-    t.integer "bank_id"
+    t.integer "crypto_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bank_id"], name: "index_trades_on_bank_id"
+    t.index ["crypto_id"], name: "index_trades_on_crypto_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
 
@@ -47,12 +44,15 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
     t.string "password_digest"
     t.string "email"
     t.integer "phone"
+    t.integer "wallet", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "wallets", force: :cascade do |t|
     t.integer "cash"
+    t.integer "user_id"
+    t.integer "crypto_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
