@@ -1,8 +1,8 @@
-<h1>Crypto</h1>
+<h1>Choose a Currency</h1>
 <%@cryptos.each do |crypto|%>
-<li>
+<p>
 <%=link_to "#{crypto.name}", crypto_path(crypto)%>
-</li>
+</p>
 <%end%>
 
   <%= button_to "Profile", '/profile', :method => :get%>
