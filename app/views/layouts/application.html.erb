@@ -4,23 +4,32 @@
     <title>CryptoApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <ul>
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><% if logged_in?%>
-      <%=button_to "Logout", '/logout', :method => :delete, :class => 'button'%>
-      <%else%>
-      <%=button_to "Login", '/login', :method => :get, :class => 'button'%>
-      <%end%></li>
-    </ul>
+    <div id="body-bkg">
+      <% if logged_in? %>
+          <ul class="navbar">
+          <li><a class="active" href="#home">Home</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><% if logged_in?%>
+            <%=button_to "Logout", '/logout', :method => :delete, :class => 'button'%>
+            <%else%>
+            <%=button_to "Login", '/login', :method => :get, :class => 'button'%>
+            <%end%></li>
+          </ul>
+
+      <% end %>
+      <center>
+  <br><br><br>
+      <%= yield %>
+      </center>
+    </div>
     
-    <%= yield %>
+    
   </body>
 </html>
