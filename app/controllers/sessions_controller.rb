@@ -6,11 +6,13 @@ class SessionsController < ApplicationController
 
   def create
     #authenticate the user
-    byebug
+    # byebug
     @user = User.find_by(:username => params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to cryptos_path
+      redirect_to '/cryptos'
+    else
+      redirect_to '/cryptos'
     end
   end
 
