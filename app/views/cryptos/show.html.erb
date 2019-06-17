@@ -1,2 +1,13 @@
-<h1>Cryptos#show</h1>
-<p>Find me in app/views/cryptos/show.html.erb</p>
+<h1><%= @crypto.name %></h1>
+<hr>
+<h3>About <%= @crypto.name %></h3>
+<p><h4>Symbol:</h4><%= @crypto.symbol %></p>   
+<p><h4>Logo:</h4><%= @crypto.logo %></p>
+<br>   
+<p><%= @crypto.description %></p>
+<br>
+<p><h3>Current Value:</h3></p>
+<h2>$<%= @crypto.value %>/USD</h2>
+<hr>
+
+<a href="/cryptos"><button>Back to Crypto List</button></a>

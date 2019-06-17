@@ -11,19 +11,23 @@
 
   <body>
     <div id="body-bkg">
-      <% if logged_in? %>
+      
+     
           <ul class="navbar">
-          <li><a class="active" href="#home">Home</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><% if logged_in?%>
-            <%=button_to "Logout", '/logout', :method => :delete, :class => 'button'%>
-            <%else%>
-            <%=button_to "Login", '/login', :method => :get, :class => 'button'%>
-            <%end%></li>
+            <li><%= image_tag("crypto.svg", {:style => "padding: 5px; width:300px;"}) %></li>
+            <li><a class="active" href="#home">Profile</a></li>
+            <li><a href="#news">Add Funds</a></li>
+            <li><a href="#news">Buy Coins</a></li>
+            <li><a href="#contact">Sell Coins</a></li>
+            <li>
+              <%=button_to "Logout", '/logout', :method => :delete, :class => 'button'%>
+            </li>
+            <li>
+              <%=button_to "Login", '/login', :method => :get, :class => 'button'%>
+              </li>
           </ul>
 
-      <% end %>
+    
       <center>
   <br><br><br>
       <%= yield %>

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
     t.index ["crypto_id"], name: "index_trades_on_crypto_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
-
+  
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
