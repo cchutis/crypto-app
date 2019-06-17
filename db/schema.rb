@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
 
   create_table "trades", force: :cascade do |t|
     t.string "crypto"
-    t.string "number"
-    t.string "cash"
+    t.integer "number"
+    t.integer "cash"
     t.integer "user_id"
     t.integer "bank_id"
     t.datetime "created_at", null: false

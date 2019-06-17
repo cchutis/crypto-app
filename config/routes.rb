@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 resources :users, only: [:index, :create]
   get '/signup', to: "users#new", as: "signup"
   get "/profile", to: "users#show", as: "profile"
-  get 'cryptos/index'
-  get 'cryptos/show'
+  get '/login', to: "sessions#new", as: "login"
+  post '/login', to: "sessions#create"
+  delete '/logout', to: "sessions#destroy"
+  resources :cryptos, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
