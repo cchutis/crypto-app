@@ -9,6 +9,11 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     session[:user_id] = @user.id
+    redirect_to cryptos_path
+  end
+
+  def logout
+    session[:user_id] = nil
     redirect_to signup_path
   end
 
