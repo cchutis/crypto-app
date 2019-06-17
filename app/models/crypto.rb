@@ -5,7 +5,7 @@ class Crypto < ApplicationRecord
   def self.name(x)
     Coinmarketcap.coin(x)["data"]["name"]
   end
-  
+
   def self.description(x)
     Coinmarketcap.coin(x)["data"]["description"]
   end
