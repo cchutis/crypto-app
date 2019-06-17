@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password_digest
       t.string :email
       t.integer :phone
+      t.integer :wallet , :default => 0
 
       t.timestamps
     end

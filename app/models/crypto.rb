@@ -1,4 +1,7 @@
 class Crypto < ApplicationRecord
+  has_many :trades
+  has_many :users, through: :trades
+
   #name, decription, logo, symbol, current_value
   # def self.name(x)
   #   Coinmarketcap.coin(x)["data"]["name"]
