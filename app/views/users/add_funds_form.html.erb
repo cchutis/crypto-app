@@ -1,1 +1,5 @@
-
+<%= form_for(@user, url: '/add_funds') do |f|%>
+<%= f.label :wallet %>
+<%= f.number_field :wallet %>
+<%= f.submit "Add Funds" %>
+<% end %>
