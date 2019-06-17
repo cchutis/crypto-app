@@ -25,10 +25,8 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
     t.string "logo"
     t.string "symbol"
     t.integer "value"
-    t.integer "wallet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["wallet_id"], name: "index_cryptos_on_wallet_id"
   end
 
   create_table "trades", force: :cascade do |t|

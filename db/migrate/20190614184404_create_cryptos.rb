@@ -6,7 +6,7 @@ class CreateCryptos < ActiveRecord::Migration[5.2]
       t.string :logo
       t.string :symbol
       t.integer :value
-      t.belongs_to :wallet, foreign_key: true
+  
 
       t.timestamps
     end
