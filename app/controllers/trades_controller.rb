@@ -11,5 +11,7 @@ class TradesController < ApplicationController
   end
 
   def create
+    @user = User.find(session[:user_id])
+    byebug
   end
 end
