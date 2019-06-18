@@ -7,7 +7,7 @@ class CreateCryptos < ActiveRecord::Migration[5.2]
       t.string :symbol
       t.float :value
       t.integer :coinbase_id
-  
+
 
       t.timestamps
     end
