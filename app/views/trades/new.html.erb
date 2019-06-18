@@ -1,3 +1,6 @@
+<% if flash[:message] %>
+<%= flash[:message] %>
+<% end %>
 <%=form_for @trade do |f|%>
 <%= f.label "Purchase Type" %>
 <%=f.select :description, options_for_select([["Select One", ""], "Sell", "Buy"]) %>

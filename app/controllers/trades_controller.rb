@@ -21,9 +21,17 @@ class TradesController < ApplicationController
     crypto = Crypto.find_by(name: params[:trade][:crypto_id])
       if
         params[:trade][:description] == "Buy"
-        total_amount_of_cryptos = @user.wallet/crypto.value
+        if @user.wallet < params[:trade][:amount].to_i
+          flash[:message] = "insufficient funds please add more"
+          redirect_to new_trade_path
+        else
+        total_amount_of_cryptos = params[:trade][:amount].to_i/crypto.value
         trade = Trade.create(description: params[:trade][:description], user_id: @user.id, crypto_id: crypto.id, amount: total_amount_of_cryptos)
+        byebug
+        new_wallet_price = @user.wallet - params[:trade][:amount].to_i
+        @user.update(wallet: new_wallet_price )
         redirect_to trades_path
+      end
       end
     end
 end
