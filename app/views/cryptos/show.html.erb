@@ -1,12 +1,10 @@
 <h1><%= @crypto.name %></h1>
 <hr>
-<h3>About <%= @crypto.name %></h3>
-<p><h4>Symbol:</h4><%= @crypto.symbol %></p>   
-<p><h4>Logo:</h4><%= @crypto.logo %></p>
-<br>   
-<p><%= @crypto.description %></p>
+<h4>Symbol:</h4><%= @crypto.symbol %>   
+<h4>Logo:</h4><%= @crypto.logo %>
+<h3>Description:</h3><%= @crypto.description %>
 <br>
-<p><h3>Current Value:</h3></p>
+<h3>Current Value:</h3>
 <h2>$<%= @crypto.value %>/USD</h2>
 <hr>
 

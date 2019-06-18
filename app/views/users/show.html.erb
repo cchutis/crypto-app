@@ -1,13 +1,11 @@
-<%= @user.name %>
+<%= image_tag('crypto.svg') %>
+<hr>
 <br>
-username: <%= @user.username %>
-<br>
-Email: <%= @user.email %>
-<br>
-Phone Number: <%= @user.phone %>
-<br>
-username: <%= @user.username %>
-<br>
-Wallet: $<%= @user.wallet %>
-
-  <%= button_to "Add Funds", '/add_funds', :method => :get %>
+<p>Welcome, <%= @user.name %></p>
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
+<p>Phone Number: <%= @user.phone %></p>
+<p>Wallet: $<%= @user.wallet %></p>
+<hr>
+<%= button_to "Edit Profile", '/edit', :method => :get %>
+<%= button_to "Add Funds", '/add_funds', :method => :get %>

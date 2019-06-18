@@ -15,8 +15,8 @@
      
           <ul class="navbar">
             <li><%= image_tag("crypto.svg", {:style => "padding: 5px; width:300px;"}) %></li>
-            <li><a class="active" href="#home">Profile</a></li>
-            <li><a href="#news">Add Funds</a></li>
+            <li><a class="active" href="/profile">Profile</a></li>
+            <li><a href="/add_funds">Add Funds</a></li>
             <li><a href="#news">Buy Coins</a></li>
             <li><a href="#contact">Sell Coins</a></li>
             <li>
@@ -29,7 +29,7 @@
 
     
       <center>
-  <br><br><br>
+  <br>
       <%= yield %>
       </center>
     </div>
