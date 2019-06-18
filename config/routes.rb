@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   get 'wallets/index'
   get 'wallets/show'
   get 'banks/index'
-resources :users, only: [:index, :create]
-  get '/profile', to:"users#show", as: "user"
+  resources :users, only: [:index, :create]
+  get '/profile/:id/edit', to: "users#edit"
+  patch '/profile', to:"users#update", as: "update"
   get '/signup', to: "users#new", as: "signup"
   get '/login', to: "sessions#new", as: "login"
+  get '/profile', to:"users#show", as: "user"
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy"
   resources :cryptos, only: [:index, :show]

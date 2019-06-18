@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def add_funds_form
     @user = User.find(session[:user_id])
   end
-
+  
   def add_funds
     @user = User.find(session[:user_id])
     new_wallet = @user.wallet.to_f + params[:user][:wallet].to_f
@@ -28,14 +28,22 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
+  def edit
+    if !authorized?
+      @user = User.find(session[:user_id])
+    end
+  end
+
   def show
     @user = User.find(session[:user_id])
   end
 
+
 private
-def user_params
-  params.require(:user).permit(:name,:username,:password,:email,:phone, :wallet)
-end
+
+  def user_params
+    params.require(:user).permit(:name,:username,:password,:email,:phone, :wallet)
+  end
 
 
 end

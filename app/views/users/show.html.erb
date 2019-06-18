@@ -7,5 +7,5 @@
 <p>Phone Number: <%= @user.phone %></p>
 <p>Wallet: $<%= @user.wallet %></p>
 <hr>
-<%= button_to "Edit Profile", '/edit', :method => :get %>
+<%= button_to "Edit Profile", "/profile/#{@user.id}/edit", :method => :get %>
 <%= button_to "Add Funds", '/add_funds', :method => :get %>

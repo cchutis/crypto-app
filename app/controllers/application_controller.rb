@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized?
-    redirect_to signup unless logged_in?
+    redirect_to signup_path unless logged_in?
 
   end
 
