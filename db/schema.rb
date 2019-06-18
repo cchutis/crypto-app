@@ -24,14 +24,15 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
     t.string "description"
     t.string "logo"
     t.string "symbol"
-    t.integer "value"
+    t.float "value"
+    t.integer "coinbase_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "trades", force: :cascade do |t|
     t.string "description"
-    t.integer "Amount"
+    t.float "Amount"
     t.integer "user_id"
     t.integer "crypto_id"
     t.datetime "created_at", null: false
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
     t.string "password_digest"
     t.string "email"
     t.integer "phone"
-    t.integer "wallet", default: 0
+    t.float "wallet", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
