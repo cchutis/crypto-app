@@ -13,70 +13,71 @@
  *= require_tree .
  *= require_self
  */
- ul {
-     list-style-type: none;
-     margin: 0;
-     padding: 0;
-     overflow: hidden;
-     background-color: #333;
- }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
 
- li {
-     float: left;
- }
+li {
+    float: left;
+}
 
- li a {
-     display: block;
-     color: white;
-     text-align: center;
-     padding: 14px 16px;
-     text-decoration: none;
- }
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
 
- li a:hover {
-     background-color: #111;
- }
+li a:hover {
+    background-color: blue;
+}
 
- .button {
-     background-color: blue;
-     background-image: linear-gradient(to top right,blue, skyblue);
-     width: 100px;
-     height: 50px;
-     color: white;
-     border: 0;
-     font-size: 18px;
-     float: right;
- }
- body {
+.button {
+    background-color: blue;
+    background-image: linear-gradient(to top right, blue, skyblue);
+    width: 100px;
+    height: 50px;
+    color: white;
+    border: 0;
+    font-size: 18px;
+    float: right;
+}
+
+body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     color: white;
- }
+}
 
- .text-field {
+.text-field {
     border-radius: 40px;
     height: 21px;
- }
+}
 
- .button:hover {
-     background-color: white;
-     background-image: linear-gradient(to top right,pink, purple);
-     color: white;
- }
+.button:hover {
+    background-color: white;
+    background-image: linear-gradient(to top right, pink, purple);
+    color: white;
+}
 
- .navbar {
-     background-color: skyblue;
- }
+.navbar {
+    background-color: skyblue;
+}
 
 
- #body-bkg {
+#body-bkg {
     height: 100vh;
     background-color: #71B676;
     background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
     background-size: 300% 300%;
     -webkit-animation: Swell 20s ease infinite;
     animation: Swell 20s ease infinite;
- }
+}
 
 @-webkit-keyframes Swell {
     0% {
@@ -104,4 +105,8 @@
     100% {
         background-position: 93% 0%
     }
+}
+
+h2 {
+    font-size: 50px;
 }

@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+# gem 'rails-assets-particles.js'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
