@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
   end
 
   create_table "trades", force: :cascade do |t|
+    t.string "description"
+    t.integer "Amount"
     t.integer "user_id"
     t.integer "crypto_id"
     t.datetime "created_at", null: false
@@ -37,14 +39,14 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
     t.index ["crypto_id"], name: "index_trades_on_crypto_id"
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
-  
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
     t.string "password_digest"
     t.string "email"
     t.integer "phone"
-    t.float "wallet", default: 0.0
+    t.integer "wallet", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

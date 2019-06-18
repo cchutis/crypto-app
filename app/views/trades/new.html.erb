@@ -1,2 +1,9 @@
-<h1>Trades#new</h1>
-<p>Find me in app/views/trades/new.html.erb</p>
+<%=form_for @trade do |f|%>
+<%= f.label :desciprion %>
+<%=f.select :desciption, options_for_select([["Select One", ""], "Sell", "Buy"]) %>
+<%= f.label :coin %>
+<%=f.select :desciption, options_for_select([["Select One", ""], "Sell", "Buy"]) %>
+<%= f.label :amount %>
+<%= f.number_field :amount%>
+<%= f.submit "submit" %>
+<% end %>
