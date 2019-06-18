@@ -5,7 +5,7 @@
 <h3>Description:</h3><%= @crypto.description %>
 <br>
 <h3>Current Value:</h3>
-<h2>$<%= @crypto.value %>/USD</h2>
+<h2>$<%= @crypto.value.to_f %>/USD</h2>
 <hr>
 
 <a href="/cryptos"><button>Back to Crypto List</button></a>
