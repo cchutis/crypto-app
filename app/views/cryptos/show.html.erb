@@ -1,11 +1,11 @@
 <h1><%= @crypto.name %></h1>
 <hr>
 <h4>Symbol:</h4><%= @crypto.symbol %>   
-<h4>Logo:</h4><%= @crypto.logo %>
+<h4>Logo:</h4> <%= image_tag(@crypto.logo) %>
 <h3>Description:</h3><%= @crypto.description %>
 <br>
 <h3>Current Value:</h3>
-<h2>$<%= @crypto.value.to_f %>/USD</h2>
+<h2>$<%= @crypto.value.round(2) %> /USD</h2>
 <hr>
 
 <a href="/cryptos"><button>Back to Crypto List</button></a>

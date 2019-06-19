@@ -70,14 +70,6 @@ body {
 }
 
 
-#body-bkg {
-    height: 100vh;
-    background-color: #71B676;
-    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
-    background-size: 300% 300%;
-    -webkit-animation: Swell 20s ease infinite;
-    animation: Swell 20s ease infinite;
-}
 
 @-webkit-keyframes Swell {
     0% {
@@ -109,4 +101,75 @@ body {
 
 h2 {
     font-size: 50px;
+}
+
+.main-logo {
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+
+
+#body-bkg {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #71B676;
+    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
+    background-size: 300% 300%;
+    -webkit-animation: Swell 20s ease infinite;
+    animation: Swell 20s ease infinite;
+    z-index: -2;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.splash-text {
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.splash-btn {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 180px;
+    height: 50px;
+    border: 0;
+    border-radius: 40px;
+    color: #71B676;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.splash-btn:hover {
+    background-color: #E8E972;
+}
+
+a {
+    z-index: 2;
+}
+
+.splash-container {
+    z-index: 3;
 }
