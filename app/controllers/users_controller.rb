@@ -45,5 +45,8 @@ private
     params.require(:user).permit(:name,:username,:password,:email,:phone, :wallet)
   end
 
+  def landing
+
+  end
 
 end

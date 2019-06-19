@@ -70,24 +70,16 @@ body {
 }
 
 
-#body-bkg {
-    height: 100vh;
-    background-color: #71B676;
-    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
-    background-size: 300% 300%;
-    -webkit-animation: Swell 20s ease infinite;
-    animation: Swell 20s ease infinite;
-}
 
 @-webkit-keyframes Swell {
     0% {
         background-position: 93% 0%
     }
-
+    
     50% {
         background-position: 0% 100%
     }
-
+    
     100% {
         background-position: 93% 0%
     }
@@ -97,11 +89,11 @@ body {
     0% {
         background-position: 93% 0%
     }
-
+    
     50% {
         background-position: 0% 100%
     }
-
+    
     100% {
         background-position: 93% 0%
     }
@@ -109,4 +101,27 @@ body {
 
 h2 {
     font-size: 50px;
+}
+
+.main-logo {
+    width: 80%;
+    z-index: 99;
+    position: absolute;
+    margin: 0 auto;
+    left: 50%;
+    top: 30%;
+    margin-left: -40%;
+}
+
+#particles-js canvas {
+    z-index: -1;
+}
+        
+#body-bkg {
+    height: 100vh;
+    background-color: #71B676;
+    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
+    background-size: 300% 300%;
+    -webkit-animation: Swell 20s ease infinite;
+    animation: Swell 20s ease infinite;
 }
