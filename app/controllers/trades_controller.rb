@@ -28,7 +28,6 @@ class TradesController < ApplicationController
       else
         total_amount_of_cryptos = params[:trade][:amount].to_i / crypto.value
         trade = Trade.create(description: params[:trade][:description], user_id: @user.id, crypto_id: crypto.id, amount: total_amount_of_cryptos)
-
         new_wallet_price = @user.wallet - params[:trade][:amount].to_i
         @user.update(wallet: new_wallet_price )
         current_crypto = crypto.name.downcase.to_sym
