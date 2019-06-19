@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def add_funds_form
-    
+
     @user = User.find(session[:user_id])
   end
 
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     @bitcoin = Crypto.find_by(name: "Bitcoin")
     @bitcoin_cash = Crypto.find_by(name: "Bitcoin Cash")
     @litecoin = Crypto.find_by(name: "Litecoin")
-    @etherium = Crypto.find_by(name: "Etherium")
+    @ethereum = Crypto.find_by(name: "Ethereum")
     @stellar = Crypto.find_by(name: "Stellar")
 
   end

@@ -1,6 +1,17 @@
 class TradesController < ApplicationController
   def index
+    if params[:description]
+     @trades = Trade.all.select do |trade|
+       trade.description == params[:description]
+     end
+   elsif params[:coin]
+     @trades = Trade.all.select do |trade|
+       trade.crypto.name == params[:coin]
+     end
+   else
     @trades = Trade.all
+
+  end
   end
 
   def show
@@ -27,12 +38,13 @@ class TradesController < ApplicationController
         redirect_to buy_path
       else
         total_amount_of_cryptos = params[:trade][:amount].to_i / crypto.value
-        trade = Trade.create(description: params[:trade][:description], user_id: @user.id, crypto_id: crypto.id, amount: total_amount_of_cryptos)
         new_wallet_price = @user.wallet - params[:trade][:amount].to_i
-        @user.update(wallet: new_wallet_price )
         current_crypto = crypto.name.downcase.to_sym
+        byebug
         new_crypto_amount =   @user[current_crypto] + total_amount_of_cryptos
         @user.update(current_crypto => new_crypto_amount)
+        @user.update(wallet: new_wallet_price )
+        trade = Trade.create(description: params[:trade][:description], user_id: @user.id, crypto_id: crypto.id, amount: total_amount_of_cryptos, price: params[:trade][:amount].to_f)
         redirect_to trades_path
       end
     else
@@ -69,12 +81,11 @@ class TradesController < ApplicationController
         flash[:message] = "You do not own this coin"
         redirect_to sell_path
       else
-
       total_amount_of_cryptos = @user[current_crypto] * (params[:trade][:amount].to_i/100.5)
-      trade = Trade.create(description: params[:trade][:description], user_id: @user.id, crypto_id: crypto.id, amount: total_amount_of_cryptos)
       new_wallet_price = @user.wallet + ( total_amount_of_cryptos * crypto.value)
-      @user.update(wallet: new_wallet_price )
       new_crypto_amount =   @user[current_crypto] - total_amount_of_cryptos
+      trade = Trade.create(description: params[:trade][:description], user_id: @user.id, crypto_id: crypto.id, amount: total_amount_of_cryptos, price:( total_amount_of_cryptos * crypto.value))
+      @user.update(wallet: new_wallet_price )
       @user.update(current_crypto => new_crypto_amount)
 
       redirect_to trades_path
