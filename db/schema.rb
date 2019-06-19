@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
   create_table "trades", force: :cascade do |t|
     t.string "description"
     t.float "amount"
+    t.float "price"
     t.integer "user_id"
     t.integer "crypto_id"
     t.datetime "created_at", null: false
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
     t.integer "phone"
     t.float "wallet", default: 0.0
     t.float "bitcoin", default: 0.0
-    t.float "etherium", default: 0.0
+    t.float "ethereum", default: 0.0
     t.float "litecoin", default: 0.0
     t.float "bitcoin_cash", default: 0.0
     t.float "stellar", default: 0.0

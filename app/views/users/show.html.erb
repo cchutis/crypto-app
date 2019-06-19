@@ -5,9 +5,24 @@
 <p>Username: <%= @user.username %></p>
 <p>Email: <%= @user.email %></p>
 <p>Phone Number: <%= @user.phone %></p>
-<p>Wallet: $<%= @user.wallet %></p>
+<h3>Wallet</h3>
+<p>Cash: $<%= @user.wallet %></p>
+<hr>
 <p>Bitcoin: Amount <%= @user.bitcoin %></p>
-<p>     : Value <%= @user.bitcoin * @bitcoin.value %></p>
+<p>     : Value $<%= @user.bitcoin * @bitcoin.value %></p>
+<hr>
+<p>Bitcoin Cash: Amount <%= @user.bitcoin_cash %></p>
+<p>     : Value $<%= @user.bitcoin_cash * @bitcoin_cash.value %></p>
+<hr>
+<p>Litecoin: Amount <%= @user.litecoin %></p>
+<p>     : Value $<%= @user.litecoin * @litecoin.value %></p>
+<hr>
+<p>Ethereum: Amount <%= @user.ethereum %></p>
+<p>     : Value $<%= @user.ethereum * @ethereum.value %></p>
+<hr>
+<p>Stellar: Amount <%= @user.stellar %></p>
+<p>     : Value $<%= @user.stellar * @stellar.value %></p>
+<hr>
 <hr>
 <%= button_to "Edit Profile", "/profile/#{@user.id}/edit", :method => :get %>
 <%= button_to "Add Funds", '/add_funds', :method => :get %>

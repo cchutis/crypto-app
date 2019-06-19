@@ -1,5 +1,21 @@
+<%= form_tag("/trades", method: "get") do %>
+<%= label_tag(:filter_type, "Filter By Type") %>
+<%= select_tag(:description, options_for_select(['Buy','Sell']), prompt: "select") %>
+<%= submit_tag("Search") %>
+<%end%>
+
+<%= form_tag("/trades", method: "get") do %>
+<%= label_tag(:filter_coin, "Filter By Coin") %>
+<%= select_tag(:coin, options_for_select(['Bitcoin','Bitcoin Cash', "Etherium", "litecoin", "Stellar"]), prompt: "select") %>
+<%= submit_tag("Search") %>
+<%end%>
+
 <%@trades.each do |trade| %>
-<li>
-<%= trade.amount.round(8) %>
-</li>
+<hr>
+<body>
+  Type: <%= trade.description %>| Coin: <%= trade.crypto.name %>| Amount <%= trade.amount.round(8) %>| Price: $<%= trade.price  %>| Date of Trade: <%= trade.created_at  %>
+
+</body>
+<hr>
+
 <% end %>
