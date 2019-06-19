@@ -56,5 +56,8 @@ private
     params.require(:user).permit(:name,:username,:password,:email,:phone, :wallet,:bitcoin,:litecoin,:bitcoin_cash,:etherium,:stellar)
   end
 
+  def landing
+
+  end
 
 end

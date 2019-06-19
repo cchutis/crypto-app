@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: "users#landing"
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -22,5 +23,6 @@ Rails.application.routes.draw do
   get '/sell', to: "trades#sell_form", as: "sell"
   post '/trades', to: "trades#sale"
   resources :trades, only: [:index]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
