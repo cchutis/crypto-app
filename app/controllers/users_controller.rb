@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def add_funds_form
+    
     @user = User.find(session[:user_id])
   end
 
