@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: "users#landing"
+  get '/', to: "users#landing" , as: "landing"
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
