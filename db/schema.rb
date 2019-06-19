@@ -48,6 +48,11 @@ ActiveRecord::Schema.define(version: 2019_06_14_184815) do
     t.string "email"
     t.integer "phone"
     t.float "wallet", default: 0.0
+    t.float "bitcoin", default: 0.0
+    t.float "etherium", default: 0.0
+    t.float "litecoin", default: 0.0
+    t.float "bitcoin_cash", default: 0.0
+    t.float "stellar", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
