@@ -17,6 +17,7 @@ class TradesController < ApplicationController
   end
 
   def create
+    byebug
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
       crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
@@ -37,7 +38,7 @@ class TradesController < ApplicationController
         new_wallet_price = @user.wallet - params[:trade][:amount].to_i
         @user.update(wallet: new_wallet_price )
         current_crypto = crypto.name.downcase.to_sym
-        
+
         @user.update(current_crypto => total_amount_of_cryptos)
         redirect_to trades_path
       end
