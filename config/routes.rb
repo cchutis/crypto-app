@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: "users#landing"
+  get '/', to: "users#landing" , as: "landing"
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   resources :cryptos, only: [:index, :show]
   get '/add_funds', to: "users#add_funds_form"
   patch '/add_funds', to: "users#add_funds"
-  resources :trades, only: [:index,:new,:create]
+  get '/buy', to: "trades#buy_form", as: "buy"
+  get '/sell', to: "trades#sell_form", as: "sell"
+  resources :trades, only: [:index]
+  post '/trades', to: "trades#bought"
+  post '/trades', to: "trades#sale"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

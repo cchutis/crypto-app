@@ -6,6 +6,8 @@
 <p>Email: <%= @user.email %></p>
 <p>Phone Number: <%= @user.phone %></p>
 <p>Wallet: $<%= @user.wallet %></p>
+<p>Bitcoin: Amount <%= @user.bitcoin %></p>
+<p>     : Value <%= @user.bitcoin * @bitcoin.value %></p>
 <hr>
 <%= button_to "Edit Profile", "/profile/#{@user.id}/edit", :method => :get %>
 <%= button_to "Add Funds", '/add_funds', :method => :get %>

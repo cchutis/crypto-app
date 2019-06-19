@@ -1,6 +1,7 @@
 class CryptosController < ApplicationController
 
   def index
+    !authorized?
     @cryptos = Crypto.all
 
     @cryptos.each do |crypto|
