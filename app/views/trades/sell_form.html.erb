@@ -3,10 +3,10 @@
 <% end %>
 <%=form_for @trade do |f|%>
 <%= f.label "Purchase Type" %>
-<%=f.select :description, options_for_select([["Select One", ""], "Sell", "Buy"]) %>
+<%=f.hidden_field :description, value: "Sell" %>
 <%= f.label :crypto_id %>
-<%=f.select :crypto_id, options_for_select([["Select One", ""], ["Bitcoin"], ["Bitcoin Cash"], ["Etherium"], ["Litecoin"], ["Stellar Lumens"]]) %>
-<%= f.label :amount %>
-<%= f.number_field :amount%>
+<%=f.select :crypto_id, options_for_select([["Select One", ""], ["Bitcoin"], ["Bitcoin Cash"], ["Ethereum"], ["Litecoin"], ["Stellar"]]) %>
+<%= f.label "Sell" %>
+<%= f.select :amount, options_for_select([["Select One", ""], ["1 /4",25], ["Half", 50], ["3/4", 75], ["Max", 100]]) %>
 <%= f.submit "submit" %>
 <% end %>

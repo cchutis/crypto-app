@@ -124,6 +124,16 @@ h2 {
     animation: Swell 20s ease infinite;
     z-index: -2;
 }
+#bkg {
+    width: 100vw;
+    height: 100vh;
+    background-color: #71B676;
+    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
+    background-size: 300% 300%;
+    -webkit-animation: Swell 20s ease infinite;
+    animation: Swell 20s ease infinite;
+    z-index: -2;
+}
 
 canvas {
     width: 100%;
