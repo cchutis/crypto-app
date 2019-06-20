@@ -29,7 +29,7 @@
                 <%end%>
                 <% if @user.litecoin > 0.0 %>
                 <p><span>Litecoin:</span> <%= @user.litecoin.round(8) %> / LTC</p>
-                <% if @litecoin.value > @coins_avg_prices[@litecoin.id] %><p style="color:green">
+                <% if @litecoin.value > @coins_prices[@litecoin.id] %><p style="color:green">
                     <%else%><p style="color:red"><%end%>
                         Value: $<%= number_with_delimiter((@user.litecoin * @litecoin.value).round(2), :delimiter => ',') %> /USD</p>
                     <hr>

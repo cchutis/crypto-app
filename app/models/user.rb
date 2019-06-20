@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
     def coin_avg_price(crypto)
       user_trades = self.trades.select {|trade| trade.crypto_id == crypto.id}
-      user_avg_price = user_trades.inject(0) {|sum, trade| sum + trade.price} / user_trades.count
+      user_coin_price = user_trades.inject(0) {|sum, trade| sum + trade.price}
+      user_coin_price
     end
   end
