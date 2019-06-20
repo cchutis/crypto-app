@@ -89,11 +89,19 @@ span {
     background-color: white;
     background-image: linear-gradient(to top right, pink, purple);
     color: white;
+    cursor: pointer;
 }
 
 .text-field {
     border-radius: 40px;
-    height: 21px;
+    height: 50px;
+    width: 300px;
+    border: none;
+    font-size: 18px;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-top: 10px;
 }
 
 .main-logo {
@@ -191,6 +199,7 @@ span {
 
 .splash-btn:hover {
     background-color: #E8E972;
+    cursor: pointer;
 }
 
 .splash-container {
@@ -243,6 +252,34 @@ span {
     border: 0;
 }
 
+.new-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.triangles {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.new-btn {
+    border-radius: 40px;
+    height: 50px;
+    width: 200px;
+    border: none;
+    font-size: 20px;
+    line-height: 40px;
+    margin-top: 20px;
+    background-color: #E8E972;
+    color: white;
+}
+
+.new-btn:hover {
+    background-color: #7cc4f2;
+    cursor: pointer;
+}
+
 /* House keeping stuff */
 
 input:focus,
@@ -254,13 +291,14 @@ button:focus {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0;
-    /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 input[type=number] {
     -moz-appearance: textfield;
-    /* Firefox */
+}
+
+::placeholder {
+    color: #71b676;
 }
