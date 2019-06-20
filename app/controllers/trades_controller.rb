@@ -27,7 +27,9 @@ class TradesController < ApplicationController
   def bought
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
-      crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
+      if !crypto.name == "Goldoubloons"
+        crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
+      end
     end
 
     @user = User.find(session[:user_id])
@@ -64,10 +66,9 @@ class TradesController < ApplicationController
 
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
-      # if !crypto.name == "Goldubloons"
+      if !crypto.name == "Goldoubloons"
         crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
-
-      # end
+      end
     end
 
     @user = User.find(session[:user_id])
