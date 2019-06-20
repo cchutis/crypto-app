@@ -39,10 +39,10 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
-        if !crypto.name == "Goldoubloons"
+
           crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
         end
-      end
+
 
     @bitcoin = Crypto.find_by(name: "Bitcoin")
     @bitcoin_cash = Crypto.find_by(name: "Bitcoin Cash")
@@ -53,7 +53,6 @@ class UsersController < ApplicationController
     @eos = Crypto.find_by(name: "EOS")
     @monero = Crypto.find_by(name: "Monero")
     @qtum = Crypto.find_by(name: "Qtum")
-    @goldoubloones = Crypto.find_by(name: "Goldoubloones")
     @coins_prices = {}
     @user.cryptos.uniq.each do |crypto|
       @coins_prices[crypto.id] = @user.coin_avg_price(crypto)

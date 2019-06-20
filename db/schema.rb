@@ -10,6 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_06_14_184746) do
+
+  create_table "cryptos", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "logo"
+    t.string "symbol"
+    t.float "value"
+    t.integer "coinbase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.string "description"
+    t.float "amount"
+    t.float "price"
+    t.integer "user_id"
+    t.integer "crypto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["crypto_id"], name: "index_trades_on_crypto_id"
+    t.index ["user_id"], name: "index_trades_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "password_digest"
+    t.string "email"
+    t.integer "phone"
+    t.float "wallet", default: 0.0
+    t.float "bitcoin", default: 0.0
+    t.float "ethereum", default: 0.0
+    t.float "litecoin", default: 0.0
+    t.float "bitcoin_cash", default: 0.0
+    t.float "stellar", default: 0.0
+    t.float "dogecoin", default: 0.0
+    t.float "eos", default: 0.0
+    t.float "monero", default: 0.0
+    t.float "qtum", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

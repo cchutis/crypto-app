@@ -20,10 +20,10 @@ class ApplicationController < ActionController::Base
   def update_value
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
-      if !crypto.name == "Goldoubloons"
+
         crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
       end
-    end
+    
   end
 
 end
