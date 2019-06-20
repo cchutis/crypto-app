@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+/* Frame Work Styles */
+a {
+    z-index: 2;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -37,6 +43,31 @@ li a:hover {
     background-color: blue;
 }
 
+h2 {
+    font-size: 50px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+span {
+    color: yellow;
+    font-weight: 600;
+}
+
+.navbar {
+    background-color: skyblue;
+}
+
 .button {
     background-color: blue;
     background-image: linear-gradient(to top right, blue, skyblue);
@@ -48,15 +79,10 @@ li a:hover {
     float: right;
 }
 
-body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-}
-
-.text-field {
-    border-radius: 40px;
+.app-btn {
+    width: 100px;
     height: 21px;
+    border-radius: 40px;
 }
 
 .button:hover {
@@ -65,11 +91,44 @@ body {
     color: white;
 }
 
-.navbar {
-    background-color: skyblue;
+.text-field {
+    border-radius: 40px;
+    height: 21px;
 }
 
+.main-logo {
+    margin-top: 0;
+    margin-bottom: 2px;
+}
 
+#body-bkg {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #71B676;
+    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
+    background-size: 300% 300%;
+    -webkit-animation: Swell 20s ease infinite;
+    animation: Swell 20s ease infinite;
+    z-index: -2;
+}
+
+#bkg {
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #71B676;
+    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
+    background-size: 300% 300%;
+    -webkit-animation: Swell 20s ease infinite;
+    animation: Swell 20s ease infinite;
+    z-index: -2;
+}
 
 @-webkit-keyframes Swell {
     0% {
@@ -97,59 +156,6 @@ body {
     100% {
         background-position: 93% 0%
     }
-}
-
-h2 {
-    font-size: 50px;
-}
-
-.main-logo {
-    margin-top: 0;
-    margin-bottom: 2px;
-}
-
-
-
-#body-bkg {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #71B676;
-    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
-    background-size: 300% 300%;
-    -webkit-animation: Swell 20s ease infinite;
-    animation: Swell 20s ease infinite;
-    z-index: -2;
-}
-#bkg {
-    width: 100vw;
-    height: 100vh;
-    background-color: #71B676;
-    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
-    background-size: 300% 300%;
-    -webkit-animation: Swell 20s ease infinite;
-    animation: Swell 20s ease infinite;
-    z-index: -2;
-}
-
-#bkg {
-    width: 100vw;
-    height: 100vh;
-    background-color: #71B676;
-    background: linear-gradient(255deg, #7cc4f2, #71b676, #7cc4f2);
-    background-size: 300% 300%;
-    -webkit-animation: Swell 20s ease infinite;
-    animation: Swell 20s ease infinite;
-    z-index: -2;
-}
-
-canvas {
-    width: 100%;
-    height: 100%;
-    z-index: -1;
 }
 
 #particles-js {
@@ -187,11 +193,73 @@ canvas {
     background-color: #E8E972;
 }
 
-a {
-    z-index: 2;
-}
-
 .splash-container {
     margin-top: 15%;
     z-index: 3;
+}
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 20%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-right: 20%;
+
+}
+
+.column p {
+    margin: 5px;
+}
+
+.wallet-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+}
+
+.wallet-btn {
+    font-size: 120px;
+    width: 50%;
+    height: 20%;
+
+}
+
+.wallet-field {
+    font-size: 120px;
+    width: 50%;
+    height: 20%;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 80px;
+    text-align: center;
+    border: 0;
+}
+
+/* House keeping stuff */
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
 }
