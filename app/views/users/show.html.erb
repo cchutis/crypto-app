@@ -14,20 +14,30 @@
                 <h3>Wallet</h3>
                 <p><span>Cash:</span> $<%= @user.wallet %></p>
                 <br>
+                <% if @user.bitcoin > 0.0 %>
                 <p><span>Bitcoin:</span> Amount <%= @user.bitcoin %> / BTC</p>
                 <p> Value $<%= @user.bitcoin * @bitcoin.value %> / USD</p>
                 <hr>
+                <%end%>
+                <% if @user.bitcoin_cash > 0.0 %>
                 <p><span>Bitcoin Cash:</span> Amount <%= @user.bitcoin_cash %> / BCH</p>
                 <p> Value $<%= @user.bitcoin_cash * @bitcoin_cash.value %> / USD</p>
                 <hr>
+                <%end%>
+                <% if @user.litecoin > 0.0 %>
                 <p><span>Litecoin:</span> Amount <%= @user.litecoin %> / LTC</p>
                 <p> Value $<%= @user.litecoin * @litecoin.value %> / USD</p>
                 <hr>
+                <%end%>
+                <% if @user.ethereum > 0.0 %>
                 <p><span>Ethereum:</span> Amount <%= @user.ethereum %> / ETH</p>
                 <p> Value $<%= @user.ethereum * @ethereum.value %> / USD</p>
                 <hr>
+                <%end%>
+                <% if @user.stellar > 0.0 %>
                 <p><span>Stellar:</span> Amount <%= @user.stellar %> / XLM</p>
                 <p> Value $<%= @user.stellar * @stellar.value %> / USD</p>
+                <%end%>
 
             </div>
         </div>
