@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   def add_funds
     @user = User.find(session[:user_id])
     new_wallet = @user.wallet.to_f + params[:user][:wallet].to_f
+    byebug
     @user.update(wallet: new_wallet)
     redirect_to user_path
   end

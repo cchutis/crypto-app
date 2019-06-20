@@ -1,16 +1,17 @@
 class TradesController < ApplicationController
   def index
-    @user = User.find(session[:user_id])
+    user = User.find(session[:user_id])
     if params[:description]
-     @trades = Trade.all.select do |trade|
+
+     @trades = user.trades.select do |trade|
        trade.description == params[:description]
      end
    elsif params[:coin]
-     @trades = Trade.all.select do |trade|
+     @trades = user.trades.select do |trade|
        trade.crypto.name == params[:coin]
      end
    else
-    @trades = Trade.all
+    @trades = user.trades.all
 
   end
   end
