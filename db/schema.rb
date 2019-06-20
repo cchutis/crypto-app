@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2019_06_14_184746) do
     t.float "litecoin", default: 0.0
     t.float "bitcoin_cash", default: 0.0
     t.float "stellar", default: 0.0
-    t.float "dogecoin", default: 0.0
     t.float "eos", default: 0.0
     t.float "monero", default: 0.0
     t.float "qtum", default: 0.0
