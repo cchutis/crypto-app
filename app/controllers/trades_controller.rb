@@ -21,14 +21,14 @@ class TradesController < ApplicationController
 
   def buy_form
     @trade = Trade.new
-
+    @user = User.find(session[:user_id])
   end
 
   def bought
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
         crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
-    end
+      end
 
     @user = User.find(session[:user_id])
     crypto = Crypto.find_by(name: params[:trade][:crypto_id])
@@ -41,8 +41,12 @@ class TradesController < ApplicationController
       else
         total_amount_of_cryptos = params[:trade][:amount].to_i / crypto.value
         new_wallet_price = @user.wallet - params[:trade][:amount].to_i
-        current_crypto = crypto.name.downcase.to_sym
-        new_crypto_amount =   @user[current_crypto] + total_amount_of_cryptos
+        if crypto.name == "Bitcoin Cash"
+          current_crypto = crypto.name.downcase.split(" ").join("_").to_sym
+        else
+          current_crypto = crypto.name.downcase.to_sym
+        end
+        new_crypto_amount = @user[current_crypto] + total_amount_of_cryptos
         @user.update(current_crypto => new_crypto_amount)
         @user.update(wallet: new_wallet_price )
         trade = Trade.create(description: params[:trade][:description], user_id: @user.id, crypto_id: crypto.id, amount: total_amount_of_cryptos, price: params[:trade][:amount].to_f)
@@ -55,7 +59,7 @@ class TradesController < ApplicationController
 
   def sell_form
     @trade = Trade.new
-
+    @user = User.find(session[:user_id])
   end
 
 
@@ -65,12 +69,16 @@ class TradesController < ApplicationController
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
         crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
-    end
+        end
 
     @user = User.find(session[:user_id])
     crypto = Crypto.find_by(name: params[:trade][:crypto_id])
-
-    current_crypto = crypto.name.downcase.to_sym
+    byebug
+    if crypto.name == "Bitcoin Cash"
+      current_crypto = crypto.name.downcase.split(" ").join("_").to_sym
+    else
+      current_crypto = crypto.name.downcase.to_sym
+    end
 
     if
       params[:trade][:description] == "Sell"
