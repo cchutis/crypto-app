@@ -64,10 +64,10 @@ class TradesController < ApplicationController
 
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
-      # if !crypto.name == "Goldubloons"
+      # if !crypto.name == "Goldoubloones"
         crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
 
-      # end
+       # end
     end
 
     @user = User.find(session[:user_id])
