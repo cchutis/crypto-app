@@ -58,7 +58,7 @@ class UsersController < ApplicationController
     @coins_prices.each do |k,v|
       @coin_total_value += v
     end
-    @coin_total_value += @user.wallet
+    @coin_total_value
   end
 
 
