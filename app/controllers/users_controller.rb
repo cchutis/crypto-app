@@ -47,7 +47,11 @@ class UsersController < ApplicationController
     @litecoin = Crypto.find_by(name: "Litecoin")
     @ethereum = Crypto.find_by(name: "Ethereum")
     @stellar = Crypto.find_by(name: "Stellar")
-
+    @coins_avg_prices = {}
+    Crypto.all.each do |crypto|
+      @coins_avg_prices[crypto.id] = @user.coin_avg_price(crypto)
+    end
+    @coins_avg_prices
   end
 
 

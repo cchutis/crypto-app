@@ -10,7 +10,7 @@ class Crypto < ApplicationRecord
   # def self.description(x)
   #   Coinmarketcap.coin(x)["data"]["description"]
   # end
-  # 
+  #
   # def self.symbol(x)
   #       Coinmarketcap.coin(x)["data"]["symbol"]
   # end
@@ -19,5 +19,8 @@ class Crypto < ApplicationRecord
   #       Coinmarketcap.coin(x)["data"]["quotes"]["USD"]["price"].round(2)
   # end
 
-
+  def coin_avg_price
+    self.trades.inject(0) {|sum, trade|
+      sum + trade.price} / self.trades.count
+  end
 end
