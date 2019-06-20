@@ -13,7 +13,8 @@
 <%@trades.each do |trade| %>
 <hr>
 <body>
-  Type: <%= link_to"#{trade.description}", trade_path(trade) %>| Coin: <%= trade.crypto.name %>| Amount <%= trade.amount.round(8) %>| Price: $<%= trade.price  %>| Date of Trade: <%= trade.created_at  %>
+  <span>Type:</span> <%= trade.description %>| <span>Coin:</span> <%= trade.crypto.name %>| <span>Amount</span> <%= trade.amount.round(8) %>| <span>Price:</span> $<%= trade.price  %>| 
+  <span>Date of Trade:</span> <%= trade.created_at.in_time_zone("America/New_York").strftime("%A, %B %d, %Y at %I:%M:%S %p")  %>
 
 </body>
 <hr>
