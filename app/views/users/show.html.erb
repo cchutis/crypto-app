@@ -14,47 +14,93 @@
             <div class="column">
                 <h3>Wallet</h3>
                 <p><span>Cash:</span> $<%= number_with_delimiter(@user.wallet, :delimiter => ',') %></p>
-                <br>
                 <% if @user.bitcoin > 0.0 %>
+                <hr>
                 <p><span>Bitcoin:</span> <%= @user.bitcoin.round(8) %> / BTC</p>
-                <% if @bitcoin.value > @coins_prices[@bitcoin.id] %><p style="color:green">
+                <% if (@user.bitcoin * @bitcoin.value) > @coins_prices[@bitcoin.id] %><p style="color:green">
                     <%else%><p style="color:red"><%end%>
-                        Value $<%= number_with_delimiter((@user.bitcoin * @bitcoin.value).round(2), :delimiter => ',') %> /
-                    USD</p>
-                <hr>
-                <%end%>
-                <% if @user.bitcoin_cash > 0.0 %>
-                <p><span>Bitcoin Cash:</span> <%= @user.bitcoin_cash.round(8) %> / BCH</p>
-                <p> Value
-                    $<%= number_with_delimiter((@user.bitcoin_cash * @bitcoin_cash.value).round(2), :delimiter => ',') %>
-                    / USD</p>
-                <hr>
-                <%end%>
-                <% if @user.litecoin > 0.0 %>
-                <p><span>Litecoin:</span> <%= @user.litecoin.round(8) %> / LTC</p>
-                <% if @litecoin.value > @coins_prices[@litecoin.id] %><p style="color:green">
-                    <%else%><p style="color:red"><%end%>
-                        Value:
-                        $<%= number_with_delimiter((@user.litecoin * @litecoin.value).round(2), :delimiter => ',') %>
-                        /USD</p>
-                    <hr>
-                    <%end%>
-
-                    <% if @user.ethereum > 0.0 %>
-                    <p><span>Ethereum:</span> <%= @user.ethereum.round(8) %> / ETH</p>
-                    <p> Value
-                        $<%= number_with_delimiter((@user.ethereum * @ethereum.value).round(2), :delimiter => ',') %> /
+                        <span>Value:</span>
+                        $<%= number_with_delimiter((@user.bitcoin * @bitcoin.value).round(2), :delimiter => ',') %> /
                         USD</p>
+                    <%end%>
+                    <% if @user.bitcoin_cash > 0.0 %>
                     <hr>
-                    <%end%>
-                    <% if @user.stellar > 0.0 %>
-                    <p><span>Stellar:</span> <%= @user.stellar.round(8) %> / XLM</p>
-                    <p> Value
-                        $<%= number_with_delimiter((@user.stellar * @stellar.value).round(2), :delimiter => ',') %> /
-                        USD</p>
+                    <p><span>Bitcoin Cash:</span> <%= @user.bitcoin_cash.round(8) %> / BCH</p>
+                    <% if (@user.bitcoin_cash * @bitcoin_cash.value) > @coins_prices[@bitcoin_cash.id] %><p
+                        style="color:green">
+                        <%else%><p style="color:red"><%end%>
+                            <span>Value:</span>
+                            $<%= number_with_delimiter((@user.bitcoin_cash * @bitcoin_cash.value).round(2), :delimiter => ',') %>
+                            / USD</p>
+                        <%end%>
+                        <% if @user.litecoin > 0.0 %>
+                        <hr>
+                        <p><span>Litecoin:</span> <%= @user.litecoin.round(8) %> / LTC</p>
+                        <% if (@user.litecoin * @litecoin.value) > @coins_prices[@litecoin.id] %><p style="color:green">
+                            <%else%><p style="color:red"><%end%>
+                                <span>Value:</span>
+                                $<%= number_with_delimiter((@user.litecoin * @litecoin.value).round(2), :delimiter => ',') %>
+                                /USD</p>
+                            <%end%>
 
+                            <% if @user.ethereum > 0.0 %>
+                            <hr>
+                            <p><span>Ethereum:</span> <%= @user.ethereum.round(8) %> / ETH</p>
+                            <% if (@user.ethereum * @ethereum.value) > @coins_prices[@ethereum.id] %><p
+                                style="color:green">
+                                <%else%><p style="color:red"><%end%>
+                                    <span>Value:</span>
+                                    $<%= number_with_delimiter((@user.ethereum * @ethereum.value).round(2), :delimiter => ',') %>
+                                    /
+                                    USD</p>
+                                <%end%>
+                                <% if @user.stellar > 0.0 %>
+                                <hr>
+                                <p><span>Stellar:</span> <%= @user.stellar.round(8) %> / XLM</p>
+                                <% if (@user.stellar * @stellar.value) > @coins_prices[@stellar.id] %><p
+                                    style="color:green">
+                                    <%else%><p style="color:red"><%end%>
+                                        <span>Value:</span>
+                                        $<%= number_with_delimiter((@user.stellar * @stellar.value).round(2), :delimiter => ',') %>
+                                        /
+                                        USD</p>
 
-                    <%end%>
+                                    <%end%>
+                                    
+                                        <% if @user.eos > 0.0 %>
+                                        <hr>
+                                        <p><span>EOS:</span> <%= @user.eos.round(8) %> / EOS</p>
+                                        <% if (@user.eos * @eos.value) > @coins_prices[@eos.id] %><p style="color:green">
+                                            <%else%><p style="color:red"><%end%>
+                                                <span>Value:</span>
+                                                $<%= number_with_delimiter((@user.eos * @eos.value).round(2), :delimiter => ',') %>
+                                                /
+                                                USD</p>
+                                        
+                                            <%end%>
+                                            <% if @user.monero > 0.0 %>
+                                            <hr>
+                                            <p><span>Monero:</span> <%= @user.monero.round(8) %> / XMR</p>
+                                            <% if (@user.monero * @monero.value) > @coins_prices[@monero.id] %><p style="color:green">
+                                                <%else%><p style="color:red"><%end%>
+                                                    <span>Value:</span>
+                                                    $<%= number_with_delimiter((@user.monero * @monero.value).round(2), :delimiter => ',') %>
+                                                    /
+                                                    USD</p>
+                                            
+                                                <%end%>
+                                                <% if @user.qtum > 0.0 %>
+                                                <hr>
+                                                <p><span>Qtum:</span> <%= @user.qtum.round(8) %> / QTUM</p>
+                                                <% if (@user.qtum * @qtum.value) > @coins_prices[@qtum.id] %><p style="color:green">
+                                                    <%else%><p style="color:red"><%end%>
+                                                        <span>Value:</span>
+                                                        $<%= number_with_delimiter((@user.qtum * @qtum.value).round(2), :delimiter => ',') %>
+                                                        /
+                                                        USD</p>
+                                                
+                                                    <%end%>
+                                        
 
                     Total = <%= @coin_total_value%>
 
