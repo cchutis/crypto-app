@@ -6,37 +6,38 @@
                 <br>
                 <p><span>Username:</span> <%= @user.username %></p>
                 <p><span>Email:</span> <%= @user.email %></p>
-                <p><span>Phone Number:</span> <%= @user.phone %></p>
+                <p><span>Phone Number:</span> <%= number_to_phone(@user.phone) %></p>
                 <p><%= button_to "Edit Profile", "/profile/#{@user.id}/edit", :method => :get, :class => "app-btn" %>
                 <%= button_to "Add Funds", '/add_funds', :method => :get, :class => "app-btn" %></p>
             </div>
             <div class="column">
                 <h3>Wallet</h3>
-                <p><span>Cash:</span> $<%= @user.wallet %></p>
+                <p><span>Cash:</span> $<%= number_with_delimiter(@user.wallet, :delimiter => ',') %></p>
                 <br>
                 <% if @user.bitcoin > 0.0 %>
-                <p><span>Bitcoin:</span> Amount <%= @user.bitcoin %> / BTC</p>
-                <p> Value $<%= @user.bitcoin * @bitcoin.value %> / USD</p>
+                <p><span>Bitcoin:</span> <%= @user.bitcoin.round(8) %> / BTC</p>
+                <p> Value $<%= number_with_delimiter((@user.bitcoin * @bitcoin.value).round(2), :delimiter => ',') %> / USD</p>
                 <hr>
                 <%end%>
                 <% if @user.bitcoin_cash > 0.0 %>
-                <p><span>Bitcoin Cash:</span> Amount <%= @user.bitcoin_cash %> / BCH</p>
-                <p> Value $<%= @user.bitcoin_cash * @bitcoin_cash.value %> / USD</p>
+                <p><span>Bitcoin Cash:</span> <%= @user.bitcoin_cash.round(8) %> / BCH</p>
+                <p> Value $<%= number_with_delimiter((@user.bitcoin_cash * @bitcoin_cash.value).round(2), :delimiter => ',') %> / USD</p>
                 <hr>
                 <%end%>
                 <% if @user.litecoin > 0.0 %>
-                <p><span>Litecoin:</span> Amount <%= @user.litecoin %> / LTC</p>
-                <p> Value $<%= @user.litecoin * @litecoin.value %> / USD</p>
+                <p><span>Litecoin:</span> <%= @user.litecoin.round(8) %> / LTC</p>
+                <p> Value $<%= number_with_delimiter((@user.litecoin * @litecoin.value).round(2), :delimiter => ',') %> / USD</p>
                 <hr>
                 <%end%>
                 <% if @user.ethereum > 0.0 %>
-                <p><span>Ethereum:</span> Amount <%= @user.ethereum %> / ETH</p>
-                <p> Value $<%= @user.ethereum * @ethereum.value %> / USD</p>
+                <p><span>Ethereum:</span> <%= @user.ethereum.round(8) %> / ETH</p>
+                <p> Value $<%= number_with_delimiter((@user.ethereum * @ethereum.value).round(2), :delimiter => ',') %> / USD</p>
                 <hr>
                 <%end%>
                 <% if @user.stellar > 0.0 %>
-                <p><span>Stellar:</span> Amount <%= @user.stellar %> / XLM</p>
-                <p> Value $<%= @user.stellar * @stellar.value %> / USD</p>
+                <p><span>Stellar:</span> <%= @user.stellar.round(8) %> / XLM</p>
+                <p> Value $<%= number_with_delimiter((@user.stellar * @stellar.value).round(2), :delimiter => ',') %> / USD</p>
+                
                 <%end%>
 
             </div>

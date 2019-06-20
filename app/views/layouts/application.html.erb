@@ -20,8 +20,9 @@
         <li><%= image_tag("crypto.svg", {:style => "padding: 5px; width:300px;"}) %></li>
         <li><a class="animsition-link" href="/profile"><i class="fas fa-user"></i> Profile</a></li>
         <li><a href="/add_funds" class="animsition-link"><i class="fas fa-money-bill-wave"></i> Add Funds</a></li>
-        <li><a href="/trades/new" class="animsition-link"><i class="fas fa-coins"></i> Buy Coins</a></li>
-        <li><a href="/trades/new" class="animsition-link"><i class="fas fa-money-check-alt"></i> Sell Coins</a></li>
+        <li><a href="/buy"><i class="fas fa-coins"></i> Buy Coins</a></li>
+        <li><a href="/sell"><i class="fas fa-money-check-alt"></i> Sell Coins</a></li>
+        <li><a href="/trades"><i class="fas fa-history"></i> Trade History</a></li>
         <% if logged_in? %>
         <li>
           <%=button_to "Logout", '/logout', :method => :delete, :class => 'button'%>
