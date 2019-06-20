@@ -54,7 +54,11 @@ class UsersController < ApplicationController
     @user.cryptos.uniq.each do |crypto|
       @coins_prices[crypto.id] = @user.coin_avg_price(crypto)
     end
-    @coins_prices
+    @coin_total_value = 0.00
+    @coins_prices.each do |k,v|
+      @coin_total_value += v
+    end
+    @coin_total_value += @user.wallet
   end
 
 
