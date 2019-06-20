@@ -10,12 +10,13 @@
 <%= submit_tag("Search") %>
 <%end%>
 
-<%@trades.each do |trade| %>
+<%@user.trades.each do |trade| %>
 <hr>
 <body>
-  Type: <%= trade.description %>| Coin: <%= trade.crypto.name %>| Amount <%= trade.amount.round(8) %>| Price: $<%= trade.price  %>| Date of Trade: <%= trade.created_at  %>
+  Type: <%= link_to"#{trade.description}", trade_path(trade) %>| Coin: <%= trade.crypto.name %>| Amount <%= trade.amount.round(8) %>| Price: $<%= trade.price  %>| Date of Trade: <%= trade.created_at  %>
 
 </body>
 <hr>
+
 
 <% end %>

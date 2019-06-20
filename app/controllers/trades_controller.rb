@@ -1,5 +1,6 @@
 class TradesController < ApplicationController
   def index
+    @user = User.find(session[:user_id])
     if params[:description]
      @trades = Trade.all.select do |trade|
        trade.description == params[:description]
