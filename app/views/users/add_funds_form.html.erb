@@ -1,6 +1,6 @@
 <div class="wallet-container">
     <%= form_for(@user, url: '/add_funds') do |f|%>
-    <%= f.number_field :wallet, value: 0.00, autofocus: true, :class => 'wallet-field' %>
+    <%= f.number_field :wallet, value: nil, autofocus: true, :class => 'wallet-field' %>
     <%= f.button '<i class="far fa-credit-card"></i> Add Funds'.html_safe, :class => 'wallet-btn' %>
     <% end %>
 </div>

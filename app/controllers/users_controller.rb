@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   def add_funds
     @user = User.find(session[:user_id])
     new_wallet = @user.wallet.to_f + params[:user][:wallet].to_f
-    byebug
     @user.update(wallet: new_wallet)
     redirect_to user_path
   end
@@ -48,7 +47,11 @@ class UsersController < ApplicationController
     @litecoin = Crypto.find_by(name: "Litecoin")
     @ethereum = Crypto.find_by(name: "Ethereum")
     @stellar = Crypto.find_by(name: "Stellar")
-
+    @coins_avg_prices = {}
+    Crypto.all.each do |crypto|
+      @coins_avg_prices[crypto.id] = @user.coin_avg_price(crypto)
+    end
+    @coins_avg_prices
   end
 
 
