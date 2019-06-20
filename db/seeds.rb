@@ -35,13 +35,7 @@ logo: "xlm.svg",
 symbol: Coinmarketcap.coin(512)["data"]["symbol"],
 value: Coinmarketcap.coin(512)["data"]["quotes"]["USD"]["price"],
 coinbase_id: 512 )
-# Dogecoin Generator
-Crypto.create(name: Coinmarketcap.coin(74)["data"]["name"],
-description: "Dogecoin is a cryptocurrency that was created as a joke — its name is a reference to a popular Internet meme. It shares many features with Litecoin. However, unlike Litecoin, there is no hard cap on the number of Dogecoins that can be produced.",
-logo: "doge.svg",
-symbol: Coinmarketcap.coin(74)["data"]["symbol"],
-value: Coinmarketcap.coin(74)["data"]["quotes"]["USD"]["price"],
-coinbase_id: 74 )
+
 # EOS Generator
 Crypto.create(name: Coinmarketcap.coin(1765)["data"]["name"],
 description: "EOS is a cryptocurrency designed to support large-scale applications. There are no fees to send or receive EOS. Instead, the protocol rewards the entities that run the network periodically with new EOS, effectively substituting inflation for transaction fees.",
