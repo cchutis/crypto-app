@@ -1,17 +1,20 @@
-<p>Welcome to</p>
-<%= image_tag("crypto.svg") %>
-<br><br>
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, :class => 'text-field'%>
-  <%= f.label :username %>
-  <%= f.text_field :username, :class => 'text-field' %>
-  <%= f.label :password %>
-  <%= f.password_field :password, :class => 'text-field' %>
-  <%= f.label :email %>
-  <%= f.text_field :email, :class => 'text-field' %>
-  <%= f.label :phone %>
-  <%= f.text_field :phone, :class => 'text-field' %>
-  <%= f.submit "Sign Up", :class => 'text-field' %>
-
-<%end%>
+<div class="new-container">
+    <%= image_tag("triangles.svg", :class => 'triangles') %>
+    <h4>Welcome to</h4>
+    <%= image_tag("crypto.svg") %>
+    <br><br>
+    <%= form_for @user do |f| %>
+    <p>
+      <%= f.text_field :name, placeholder: 'Name', :class => 'text-field'%>
+      <%= f.text_field :username, placeholder: 'Username', :class => 'text-field' %>
+      <%= f.text_field :phone, placeholder: 'Phone Number', :class => 'text-field' %>
+    </p>
+    <p>
+      <%= f.text_field :email, placeholder: 'Email Address', :class => 'text-field' %>
+      <%= f.password_field :password, placeholder: 'Password', :class => 'text-field' %>
+    </p>
+    <p>
+      <%= f.submit "Sign Up", :class => 'new-btn' %>
+    </p>
+    <%end%>
+</div>

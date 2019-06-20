@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
-  <title>CryptoApp</title>
+  <title>CryptoChambr</title>
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <link rel="stylesheet" href="../dist/css/animsition.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="../dist/js/animsition.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/9c26ad6839.js"></script>
 </head>
 
 <body>
-  <div class="animsition-overlay" data-animsition-overlay="true">
     <div id="bkg">
       <% if !current_page?(controller: 'users', action: 'landing') %>
       <ul class="navbar">
         <li><%= image_tag("crypto.svg", {:style => "padding: 5px; width:300px;"}) %></li>
-        <li><a class="animsition-link" href="/profile">Profile</a></li>
-        <li><a href="/add_funds" class="animsition-link">Add Funds</a></li>
-        <li><a href="/trades/new" class="animsition-link">Trade Coins</a></li>
+        <li><a class="animsition-link" href="/profile"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="/add_funds" class="animsition-link"><i class="fas fa-money-bill-wave"></i> Add Funds</a></li>
+        <li><a href="/trades/new" class="animsition-link"><i class="fas fa-coins"></i> Buy Coins</a></li>
+        <li><a href="/trades/new" class="animsition-link"><i class="fas fa-money-check-alt"></i> Sell Coins</a></li>
+        <% if logged_in? %>
         <li>
           <%=button_to "Logout", '/logout', :method => :delete, :class => 'button'%>
         </li>
+        <%else%>
         <li>
           <%=button_to "Login", '/login', :method => :get, :class => 'button'%>
         </li>
+        <%end%>
       </ul>
       <%end%>
 
@@ -43,33 +45,7 @@
       </center>
 
     </div>
-  </div>
-  <script>
-    $(document).ready(function () {
-        $(".animsition-overlay").animsition({
-          inClass: 'overlay-slide-in-right',
-          outClass: 'overlay-slide-out-right',
-          inDuration: 1500,
-          outDuration: 800,
-          linkElement: '.animsition-link',
-          // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-          loading: true,
-          loadingParentElement: 'body', //animsition wrapper element
-          loadingClass: 'animsition-loading',
-          loadingInner: '', // e.g '<img src="loading.svg" />'
-          timeout: false,
-          timeoutCountdown: 5000,
-          onLoadEvent: true,
-          browser: ['animation-duration', '-webkit-animation-duration'],
-          // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-          // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-          overlay: true,
-          overlayClass: 'animsition-overlay-slide',
-          overlayParentElement: 'body',
-          transition: function (url) { window.location.href = url; }
-        });
-      });
-  </script>
+  
 </body>
 
 </html>

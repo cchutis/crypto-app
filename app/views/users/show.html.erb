@@ -1,28 +1,45 @@
-<%= image_tag('crypto.svg') %>
-<hr>
-<br>
-<p>Welcome, <%= @user.name %></p>
-<p>Username: <%= @user.username %></p>
-<p>Email: <%= @user.email %></p>
-<p>Phone Number: <%= @user.phone %></p>
-<h3>Wallet</h3>
-<p>Cash: $<%= @user.wallet %></p>
-<hr>
-<p>Bitcoin: Amount <%= @user.bitcoin %></p>
-<p>     : Value $<%= @user.bitcoin * @bitcoin.value %></p>
-<hr>
-<p>Bitcoin Cash: Amount <%= @user.bitcoin_cash %></p>
-<p>     : Value $<%= @user.bitcoin_cash * @bitcoin_cash.value %></p>
-<hr>
-<p>Litecoin: Amount <%= @user.litecoin %></p>
-<p>     : Value $<%= @user.litecoin * @litecoin.value %></p>
-<hr>
-<p>Ethereum: Amount <%= @user.ethereum %></p>
-<p>     : Value $<%= @user.ethereum * @ethereum.value %></p>
-<hr>
-<p>Stellar: Amount <%= @user.stellar %></p>
-<p>     : Value $<%= @user.stellar * @stellar.value %></p>
-<hr>
-<hr>
-<%= button_to "Edit Profile", "/profile/#{@user.id}/edit", :method => :get %>
-<%= button_to "Add Funds", '/add_funds', :method => :get %>
+<div class="container">
+    <div class="content">
+        <h1 style="text-align: left; margin-left: 10%;">Welcome, <%= @user.name %>!</h1>
+        <div class="row">
+            <div class="column">
+                <br>
+                <p><span>Username:</span> <%= @user.username %></p>
+                <p><span>Email:</span> <%= @user.email %></p>
+                <p><span>Phone Number:</span> <%= @user.phone %></p>
+                <p><%= button_to "Edit Profile", "/profile/#{@user.id}/edit", :method => :get, :class => "app-btn" %>
+                <%= button_to "Add Funds", '/add_funds', :method => :get, :class => "app-btn" %></p>
+            </div>
+            <div class="column">
+                <h3>Wallet</h3>
+                <p><span>Cash:</span> $<%= @user.wallet %></p>
+                <br>
+                <% if @user.bitcoin > 0.0 %>
+                <p><span>Bitcoin:</span> Amount <%= @user.bitcoin %> / BTC</p>
+                <p> Value $<%= @user.bitcoin * @bitcoin.value %> / USD</p>
+                <hr>
+                <%end%>
+                <% if @user.bitcoin_cash > 0.0 %>
+                <p><span>Bitcoin Cash:</span> Amount <%= @user.bitcoin_cash %> / BCH</p>
+                <p> Value $<%= @user.bitcoin_cash * @bitcoin_cash.value %> / USD</p>
+                <hr>
+                <%end%>
+                <% if @user.litecoin > 0.0 %>
+                <p><span>Litecoin:</span> Amount <%= @user.litecoin %> / LTC</p>
+                <p> Value $<%= @user.litecoin * @litecoin.value %> / USD</p>
+                <hr>
+                <%end%>
+                <% if @user.ethereum > 0.0 %>
+                <p><span>Ethereum:</span> Amount <%= @user.ethereum %> / ETH</p>
+                <p> Value $<%= @user.ethereum * @ethereum.value %> / USD</p>
+                <hr>
+                <%end%>
+                <% if @user.stellar > 0.0 %>
+                <p><span>Stellar:</span> Amount <%= @user.stellar %> / XLM</p>
+                <p> Value $<%= @user.stellar * @stellar.value %> / USD</p>
+                <%end%>
+
+            </div>
+        </div>
+    </div>
+</div>
