@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<% if flash[:message] %>
+<%= flash[:message] %>
+<% end %>
 <html lang="en">
 
 <head>
@@ -17,8 +20,8 @@
         </div>
     </div>
     <div id="particles-js"></div>
-    
-    
+
+
 </body>
 
 </html>

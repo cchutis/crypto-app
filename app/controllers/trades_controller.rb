@@ -1,4 +1,5 @@
 class TradesController < ApplicationController
+  before_action :authorized?, only: [:index, :buy_form, :sell_form]
   def index
     user = User.find(session[:user_id])
     if params[:description]
@@ -16,8 +17,7 @@ class TradesController < ApplicationController
   end
   end
 
-  def show
-  end
+
 
   def buy_form
     @trade = Trade.new
@@ -58,6 +58,7 @@ class TradesController < ApplicationController
   end
 
   def sell_form
+
     @trade = Trade.new
     @user = User.find(session[:user_id])
   end
@@ -73,7 +74,6 @@ class TradesController < ApplicationController
 
     @user = User.find(session[:user_id])
     crypto = Crypto.find_by(name: params[:trade][:crypto_id])
-    byebug
     if crypto.name == "Bitcoin Cash"
       current_crypto = crypto.name.downcase.split(" ").join("_").to_sym
     else

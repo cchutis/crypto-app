@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized?
+    flash[:message] = "Please create an account"
     redirect_to landing_path unless logged_in?
+
 
   end
 

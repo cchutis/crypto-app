@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   patch '/add_funds', to: "users#add_funds"
   get '/buy', to: "trades#buy_form", as: "buy"
   get '/sell', to: "trades#sell_form", as: "sell"
-  resources :trades, only: [:index,:show]
+  resources :trades, only: [:index]
   post '/trades', to: "trades#bought"
   post '/trades', to: "trades#sale"
 

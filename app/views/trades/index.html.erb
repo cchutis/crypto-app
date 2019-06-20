@@ -9,11 +9,11 @@
 <%= select_tag(:coin, options_for_select(['Bitcoin','Bitcoin Cash', "Etherium", "litecoin", "Stellar"]), prompt: "select") %>
 <%= submit_tag("Search") %>
 <%end%>
-
+<a href="/trades"><button>Reset</button></a>
 <%@trades.each do |trade| %>
 <hr>
 <body>
-  <span>Type:</span> <%= trade.description %>| <span>Coin:</span> <%= trade.crypto.name %>| <span>Amount</span> <%= trade.amount.round(8) %>| <span>Price:</span> $<%= trade.price  %>| 
+  <span>Type:</span> <%= trade.description %>| <span>Coin:</span> <%= trade.crypto.name %>| <span>Amount</span> <%= trade.amount.round(8) %>| <span>Price:</span> $<%= trade.price  %>|
   <span>Date of Trade:</span> <%= trade.created_at.in_time_zone("America/New_York").strftime("%A, %B %d, %Y at %I:%M:%S %p")  %>
 
 </body>
