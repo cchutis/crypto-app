@@ -42,7 +42,6 @@ class TradesController < ApplicationController
         total_amount_of_cryptos = params[:trade][:amount].to_i / crypto.value
         new_wallet_price = @user.wallet - params[:trade][:amount].to_i
         current_crypto = crypto.name.downcase.to_sym
-        byebug
         new_crypto_amount =   @user[current_crypto] + total_amount_of_cryptos
         @user.update(current_crypto => new_crypto_amount)
         @user.update(wallet: new_wallet_price )

@@ -2,18 +2,22 @@
     <h1>Edit Profile</h1>
 
     <%= form_for @user do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => 'text-field'%>
-    <%= f.label :username %>
-    <%= f.text_field :username, :class => 'text-field' %>
-    <%= f.label :password %>
-    <%= f.password_field :password, :class => 'text-field' %>
-    <%= f.label :email %>
-    <%= f.text_field :email, :class => 'text-field' %>
-    <%= f.label :phone %>
-    <%= f.text_field :phone, :class => 'text-field' %>
-    <%= f.submit "Save", :class => 'text-field' %>
-
+    <p><%= f.label :name, "Name:" %>
+        <%= f.text_field :name, :class => 'text-field'%>
+        <%= f.label :username, "Username:" %>
+        <%= f.text_field :username, :class => 'text-field' %>
+        <%= f.label :phone, "Phone Number:" %>
+        <%= f.text_field :phone, :class => 'text-field' %>
+    </p>
+    <p>
+        <%= f.label :email, "Email Address:" %>
+        <%= f.text_field :email, :class => 'text-field' %>
+        <%= f.label :password, "Password:" %>
+        <%= f.password_field :password, :class => 'text-field' %>
+    </p>
+    <p>
+        <%= f.submit "Save", :style => "margin-left: 20px;", :class => 'new-btn' %>
+    </p>
     <%end%>
 
 </div>
