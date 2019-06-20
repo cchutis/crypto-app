@@ -39,10 +39,8 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
-
           crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
         end
-
 
     @bitcoin = Crypto.find_by(name: "Bitcoin")
     @bitcoin_cash = Crypto.find_by(name: "Bitcoin Cash")
