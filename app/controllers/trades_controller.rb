@@ -1,4 +1,5 @@
 class TradesController < ApplicationController
+  before_action :authorized?, only: [:index, :buy_form, :sell_form]
   def index
     user = User.find(session[:user_id])
     if params[:description]
@@ -16,8 +17,7 @@ class TradesController < ApplicationController
   end
   end
 
-  def show
-  end
+
 
   def buy_form
     @trade = Trade.new
@@ -58,6 +58,7 @@ class TradesController < ApplicationController
   end
 
   def sell_form
+
     @trade = Trade.new
     @user = User.find(session[:user_id])
   end
@@ -86,7 +87,7 @@ class TradesController < ApplicationController
         flash[:message] = "You do not own this coin"
         redirect_to sell_path
       else
-      total_amount_of_cryptos = @user[current_crypto] * (params[:trade][:amount].to_i/100.5)
+      total_amount_of_cryptos = @user[current_crypto] * (params[:trade][:amount].to_i/100)
       new_wallet_price = @user.wallet + ( total_amount_of_cryptos * crypto.value)
       new_crypto_amount =   @user[current_crypto] - total_amount_of_cryptos
       trade = Trade.create(description: params[:trade][:description], user_id: @user.id, crypto_id: crypto.id, amount: total_amount_of_cryptos, price:( total_amount_of_cryptos * crypto.value))

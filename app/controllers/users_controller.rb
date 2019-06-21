@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-
+  before_action :authorized?, only: [:add_funds_form, :show]
   def new
     @user = User.new
+
   end
 
   def create
@@ -12,15 +13,9 @@ class UsersController < ApplicationController
     redirect_to cryptos_path
   end
 
-  def logout
-    session[:user_id] = nil
-    redirect_to signup_path
-  end
-
   def add_funds_form
-
     @user = User.find(session[:user_id])
-  end
+    end
 
   def add_funds
     @user = User.find(session[:user_id])
@@ -30,12 +25,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if !authorized?
+    !authorized?
       @user = User.find(session[:user_id])
-    end
+
   end
 
   def show
+    authorized?
     @user = User.find(session[:user_id])
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
@@ -59,6 +55,15 @@ class UsersController < ApplicationController
       @coin_total_value += v
     end
     @coin_total_value
+    sold_trades = Trade.all.select do |trade|
+      trade.description == "Sell"
+    end
+    @sold_trades_total = 0
+    sold_trades.each do|sold|
+    @sold_trades_total +=  sold.price
+    end
+    @sold_trades_total = (@sold_trades_total * 2)
+
   end
 
 

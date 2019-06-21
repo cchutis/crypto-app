@@ -1,7 +1,6 @@
 class CryptosController < ApplicationController
-
+before_action :authorized?, only: [:index, :show]
   def index
-    !authorized?
     @cryptos = Crypto.all
 
     @cryptos.each do |crypto|
@@ -12,6 +11,7 @@ class CryptosController < ApplicationController
 
 
   def show
+
     @crypto = Crypto.find(params[:id])
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
