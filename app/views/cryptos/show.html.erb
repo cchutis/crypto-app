@@ -1,7 +1,8 @@
-<h1><%= @crypto.name %></h1>
+<div class="crypto-single-container">
+<%= image_tag(@crypto.logo, :style => "width: 100px;") %><h1><%= @crypto.name %></h1>
 <hr>
 <h4>Symbol:</h4><%= @crypto.symbol %>   
-<h4>Logo:</h4> <%= image_tag(@crypto.logo) %>
+<h4>Logo:</h4> 
 <h3>Description:</h3><%= @crypto.description %>
 <br>
 <h3>Current Value:</h3>
@@ -9,3 +10,6 @@
 <hr>
 
 <a href="/cryptos"><button>Back to Crypto List</button></a>
+
+<div class="coin-bkg"><%= image_tag(@crypto.logo, :class => "coin-img-bkg") %></div>
+</div>

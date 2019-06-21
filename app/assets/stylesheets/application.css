@@ -62,7 +62,12 @@ h1 {
 }
 
 h2 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 50px;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -230,7 +235,8 @@ span {
 }
 
 .splash-btn:hover {
-    background-color: #E8E972;
+    background-color: #7cc4f2;
+    color: white;
     cursor: pointer;
 }
 
@@ -317,11 +323,24 @@ span {
     margin-top: 20px;
     background-color: #E8E972;
     color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .new-btn:hover {
     background-color: #7cc4f2;
     cursor: pointer;
+}
+
+.coin-bkg {
+    position: fixed;
+    top: 10%;
+    left: 55%;
+}
+
+.coin-img-bkg {
+    width: 40vw;
+    opacity: 0.1;
+    pointer-events: none;
 }
 
 /* House keeping stuff */
@@ -345,12 +364,13 @@ input[type=number] {
 
 ::placeholder {
     color: #71b676;
+    font-family: 'Montserrat', sans-serif;
 }
 
 input,
 textarea {
     color: #71b676;
-  
+    font-family: 'Montserrat', sans-serif;
 }
 
 input::-webkit-input-placeholder,
