@@ -12,6 +12,7 @@
             </div>
 
             <div class="column">
+
                 <%= image_tag("crypto.svg", {:style => "margin-bottom: 10px; width:300px;"}) %>
                 <p><span class="selector">Cash:</span> $<%= number_with_delimiter(@user.wallet, :delimiter => ',') %></p>
                 <% if @user.bitcoin > 0.0 %>
@@ -19,8 +20,9 @@
                     <p><span class="selector">Bitcoin:</span> <%= @user.bitcoin.round(8) %> / BTC</p>
                     <p>
                     <span class="selector">Value:</span> $<%= number_with_delimiter((@user.bitcoin * @bitcoin.value).round(2), :delimiter => ',') %> / USD</p>
+
                 <%end%>
-                
+
                 <% if @user.bitcoin_cash > 0.0 %>
                     <hr align="left" style="width:300px;">
                     <p><span class="selector">Bitcoin Cash:</span> <%= @user.bitcoin_cash.round(8) %> / BCH</p>
@@ -37,10 +39,12 @@
                 <%end%>
 
                 <% if @user.ethereum > 0.0 %>
+
                     <hr align="left" style="width:300px;">
                     <p><span class="selector">Ethereum:</span> <%= @user.ethereum.round(8) %> / ETH</p>
                     <p>
                     <span class="selector">Value:</span> $<%= number_with_delimiter((@user.ethereum * @ethereum.value).round(2), :delimiter => ',') %> / USD</p>
+
                 <%end%>
 
                 <% if @user.stellar > 0.0 %>
@@ -76,12 +80,12 @@
                     <% total_percentage = ((((@user.qtum * @qtum.value)+(@user.monero * @monero.value)+(@user.eos * @eos.value)+(@user.stellar * @stellar.value)+(@user.ethereum * @ethereum.value)+(@user.litecoin * @litecoin.value)+(@user.bitcoin_cash * @bitcoin_cash.value)+(@user.bitcoin * @bitcoin.value)+@sold_trades_total)/ @coin_total_value)/100).round(2)%>
 <hr align="left" style="width:300px;">
       <% if total < 0.0 %>
-      <p style="color:red;">Net Loss: $<%= total %> <br>Percentage Loss: <%= total_percentage  %>%</p>
+      <p style="color:red;">Net Loss: $<%= total.round(2) %> <br>Percentage Loss: <%= total_percentage  %>%</p>
       <%else%>
-      <p style="color:green;">Net Gain: $<%= total %> <br>Percentage Gain: <%= total_percentage  %>%</p>
+      <p style="color:green;">Net Gain: $<%= total.round(2) %> <br>Percentage Gain: <%= total_percentage  %>%</p>
       <%end%>
 
-
+        <%= button_to "Delete", {:action => "destroy"}, :method  => :delete %>
             </div>
         </div>
     </div>

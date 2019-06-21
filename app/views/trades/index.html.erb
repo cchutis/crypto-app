@@ -21,12 +21,17 @@
   <%@trades.each do |trade| %>
   <hr>
 
-  <body>
-    <span>Transaction:</span> <%= trade.description %> | <span>Coin:</span>
-    <%=image_tag(trade.crypto.logo, :style => 'height: 20px;')%>&nbsp;<%= trade.crypto.name %> | <span>Quantity:</span>
-    <%= trade.amount.round(8) %> | <span>Price:</span> $<%= trade.price  %> |
-    <span>Date of Trade:</span>
-    <%= trade.created_at.in_time_zone("America/New_York").strftime("%A, %B %d, %Y at %I:%M:%S %p")  %>
+<%= form_tag("/trades", method: "get") do %>
+<%= label_tag(:filter_coin, "Filter By Coin") %>
+<%= select_tag(:coin, options_for_select(['Bitcoin','Bitcoin Cash', "Etherium", "litecoin", "Stellar", "EOS", "Monero", "Qtum"]), prompt: "select") %>
+<%= submit_tag("Search") %>
+<%end%>
+<a href="/trades"><button>Reset</button></a>
+<%@trades.each do |trade| %>
+<hr>
+<body>
+  <span>Type:</span> <%= trade.description %>| <span>Coin:</span> <%= trade.crypto.name %>| <span>Amount</span> <%= trade.amount.round(8) %>| <span>Price:</span> $<%= trade.price  %>|
+  <span>Date of Trade:</span> <%= trade.created_at.in_time_zone("America/New_York").strftime("%A, %B %d, %Y at %I:%M:%S %p")  %>
 
   </body>
   <hr>

@@ -2,20 +2,17 @@ class UsersController < ApplicationController
   before_action :authorized?, only: [:add_funds_form, :show]
   def new
     @user = User.new
-
   end
 
   def create
     @user = User.create(user_params)
-
     session[:user_id] = @user.id
-
-    redirect_to cryptos_path
+    redirect_to user_path(@user)
   end
 
   def add_funds_form
     @user = User.find(session[:user_id])
-    end
+  end
 
   def add_funds
     @user = User.find(session[:user_id])
@@ -26,8 +23,13 @@ class UsersController < ApplicationController
 
   def edit
     !authorized?
-      @user = User.find(session[:user_id])
+    @user = User.find(session[:user_id])
+  end
 
+  def update
+    @user = User.find(session[:user_id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   def show
@@ -35,9 +37,8 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
-          crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
-        end
-
+      crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
+    end
     @bitcoin = Crypto.find_by(name: "Bitcoin")
     @bitcoin_cash = Crypto.find_by(name: "Bitcoin Cash")
     @litecoin = Crypto.find_by(name: "Litecoin")
@@ -51,11 +52,11 @@ class UsersController < ApplicationController
       @coins_prices[crypto.id] = @user.coin_avg_price(crypto)
     end
     @coin_total_value = 0.00
-    @coins_prices.each do |k,v|
-      @coin_total_value += v
+    @coins_prices.each do |coin , value|
+      @coin_total_value += value
     end
     @coin_total_value
-    sold_trades = Trade.all.select do |trade|
+    sold_trades = @user.trades.select do |trade|
       trade.description == "Sell"
     end
     @sold_trades_total = 0
@@ -63,18 +64,28 @@ class UsersController < ApplicationController
     @sold_trades_total +=  sold.price
     end
     @sold_trades_total = (@sold_trades_total * 2)
+    @each_sold_price = {}
+    sold_trades.each do |trade|
+      @each_sold_price[trade.crypto_id] = trade.price
+    end
 
   end
 
+  def destroy
+    @user = User.find(session[:user_id])
+    @user.delete
+    session[:user_id] = nil
+    flash[:goodbye] = "Sorry to see you go"
+    redirect_to landing_path
 
-private
+  end
+
+  private
 
   def user_params
     params.require(:user).permit(:name,:username,:password,:email,:phone, :wallet,:bitcoin,:litecoin,:bitcoin_cash,:etherium,:stellar)
   end
 
   def landing
-
   end
-
 end
