@@ -13,7 +13,7 @@
 
             <div class="column">
                 <h3>Wallet</h3>
-                <p><span>Cash:</span> $<%= number_with_delimiter(@user.wallet, :delimiter => ',') %></p>
+                <p><span>Cash:</span> $<%= number_with_delimiter(@user.wallet.round(2) , :delimiter => ',')%></p>
 
                 <% if @user.bitcoin > 0.0 %>
 

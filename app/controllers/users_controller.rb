@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
+  def update
+    @user = User.find(session[:user_id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
+
   def show
     authorized?
     @user = User.find(session[:user_id])
