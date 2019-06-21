@@ -64,6 +64,11 @@ class UsersController < ApplicationController
     @sold_trades_total +=  sold.price
     end
     @sold_trades_total = (@sold_trades_total * 2)
+    @each_sold_price = {}
+    sold_trades.each do |trade|
+      @each_sold_price[trade.crypto_id] = trade.price
+    end
+
   end
 
   def destroy
