@@ -1,8 +1,16 @@
-<h1>Choose a Currency</h1>
-<%@cryptos.each do |crypto|%>
-<p>
-<%=link_to "#{crypto.name}", crypto_path(crypto)%>
-</p>
-<%end%>
-
-  <%= button_to "Profile", '/profile', :method => :get%>
+<div class="cryptos-container">
+  <h1>Choose a Currency</h1>
+  <div class="row">
+    <div class="column">
+      <%@cryptos.each do |crypto|%>
+      <p class="coin-links">
+        <%= link_to image_tag(crypto.logo), crypto_path(crypto) %>
+        <%= link_to crypto.name, crypto_path(crypto), :class => "coin-links" %>
+      </p>
+      <%end%>
+    </div>
+  </div>
+</div>
+<div class="new-container">
+  <%= image_tag('triangles.svg', :class => 'triangles') %>
+</div>

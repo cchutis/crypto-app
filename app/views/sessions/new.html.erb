@@ -1,10 +1,18 @@
-<%if flash[:message]%>
-<%= flash[:message] %>
-<% end %>
-<%=form_tag "/login" do%>
-<%= label_tag(:username, "Username") %>
-<%= text_field_tag(:username) %>
-<%= label_tag(:password, "Password") %>
-<%= password_field_tag(:password)%>
-<%= submit_tag("Login") %>
-<% end %>
+<div class="login-container">
+    <%if flash[:message]%>
+    <%= flash[:message] %>
+    <% end %>
+    <%=form_tag "/login" do%>
+    <%= label_tag(:username, "Username") %>
+    <%= text_field_tag(:username) %>
+    <%= label_tag(:password, "Password") %>
+    <%= password_field_tag(:password)%>
+    <%= submit_tag("Login") %>
+    <% end %>
+</div>
+
+
+<div class="new-container">
+    <%= image_tag('triangles.svg', :class => 'triangles') %>
+</div>
+<div id="particles-js"></div>

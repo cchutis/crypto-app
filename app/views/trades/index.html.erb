@@ -1,3 +1,4 @@
+<div class="trades-container">
 <%= form_tag("/trades", method: "get") do %>
 <%= label_tag(:filter_type, "Filter By Type") %>
 <%= select_tag(:description, options_for_select(['Buy','Sell']), prompt: "select") %>
@@ -21,3 +22,8 @@
 
 
 <% end %>
+
+</div>
+<div class="new-container">
+  <%= image_tag('triangles.svg', :class => 'triangles') %>
+</div>

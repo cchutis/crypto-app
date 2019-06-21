@@ -20,7 +20,11 @@ a {
 }
 
 hr {
-    width: 100%;
+    width: 90%;
+    height: 2px;
+    background-color: #E8E972;
+    border:0;
+    padding: 0;
 }
 
 ul {
@@ -28,27 +32,50 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    position: relative;
+    z-index: 30;
 }
 
-li {
+.navbar li {
     float: left;
+}
+.status-bar li {
+    position: fixed;
+    right: 10px;
+    top: 8px;
 }
 
 li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 18px 16px;
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: blue;
+    background-color: #71b676;
+    background: linear-gradient(360deg, #71b676, #7cc4f2)
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+    font-weight: 100;
 }
 
 h2 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 50px;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 body {
@@ -64,37 +91,49 @@ canvas {
 }
 
 span {
-    color: yellow;
+    color: #E8E972;
     font-weight: 600;
 }
 
 .navbar {
     background-color: skyblue;
+    background: linear-gradient(30deg, #5b59da, #7cc4f2);
 }
 
 .button {
-    background-color: blue;
-    background-image: linear-gradient(to top right, blue, skyblue);
+    background-color: #E8E972;
+    background: linear-gradient(30deg, #E8E972, #fdb021);
     width: 100px;
-    height: 50px;
+    height: 40px;
     color: white;
     border: 0;
+    border-radius: 20px;
     font-size: 18px;
-    float: right;
-}
-
-.app-btn {
-    width: 100px;
-    height: 21px;
-    border-radius: 40px;
 }
 
 .button:hover {
-    background-color: white;
-    background-image: linear-gradient(to top right, pink, purple);
+    background-color: #71B676;
+    background: linear-gradient(30deg, #fdb021, #E8E972);
     color: white;
     cursor: pointer;
 }
+
+.app-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    width: 140px;
+    height: 35px;
+    border-radius: 40px;
+    margin: 10px;
+    border: 0;
+}
+
+.app-btn:hover {
+    cursor: pointer;
+    background-color: #7cc4f2;
+    color: white;
+}
+
 
 .text-field {
     border-radius: 40px;
@@ -185,11 +224,13 @@ span {
 }
 
 .splash-text {
+    font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     margin-top: 0;
 }
 
 .splash-btn {
+    font-family: 'Montserrat', sans-serif;
     margin-left: 20px;
     margin-right: 20px;
     width: 180px;
@@ -202,7 +243,8 @@ span {
 }
 
 .splash-btn:hover {
-    background-color: #E8E972;
+    background-color: #7cc4f2;
+    color: white;
     cursor: pointer;
 }
 
@@ -216,15 +258,15 @@ span {
     display: flex;
     flex-direction: row;
     justify-content: left;
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .column {
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-right: 20%;
-
+    justify-content: center;
+    margin-right: 15%;
 }
 
 .column p {
@@ -238,34 +280,85 @@ span {
     align-content: center;
 }
 
-.wallet-btn {
-    font-size: 120px;
-    width: 50%;
-    height: 20%;
-    border-radius: 40px;
+.wallet-outer {
+      position: relative;
+      z-index: 30;
+}
 
+.wallet-btn {
+    font-size: 40px;
+    width: 300px;
+    height: 80px;
+    border-radius: 40px;
+    padding: 0 20px 0 20px;
+    background-color: #7cc4f2;
+    color: white;
+    border: 0;
+}
+
+.wallet-btn:hover {
+    background-color: #E8E972;
+    color: white;
+    cursor: pointer;
+}
+
+.login-container {
+     position: relative;
+     z-index: 30;
 }
 
 .wallet-field {
-    font-size: 120px;
+    font-size: 100px;
     width: 50%;
     height: 20%;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
     border-radius: 80px;
     text-align: center;
     border: 0;
+    color: #71b676;
+}
+
+.container {
+    position: relative;
+    z-index: 30;
 }
 
 .new-container {
     display: flex;
     flex-direction: column;
+    z-index: 0;
 }
 
+.buy-container {
+    position: relative;
+    z-index: 30;
+}
+.sell-container {
+    position: relative;
+    z-index: 30;
+}
+.edit-container {
+    position: relative;
+    z-index: 30;
+}
+.trades-container {
+    position: relative;
+    z-index: 30;
+}
+.cryptos-container {
+    z-index: 10;
+    position: fixed;
+    left: 10%;
+}
 .triangles {
     width: 100vw;
     height: 100vh;
     position: fixed;
+    top: 0;
+    left: 20%;
     z-index: 0;
+    opacity: 0.3;
 }
 
 .new-btn {
@@ -278,11 +371,54 @@ span {
     margin-top: 20px;
     background-color: #E8E972;
     color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .new-btn:hover {
     background-color: #7cc4f2;
     cursor: pointer;
+}
+
+.crypto-header {
+    overflow: auto;
+    padding-bottom: 0;
+}
+.crypto-header h1,
+.crypto-header img {
+    float: left;
+}
+
+.crypto-header h1 {
+    padding-left: 20px;
+}
+
+.coin-bkg {
+    position: fixed;
+    top: 10%;
+    left: 55%;
+}
+
+.coin-img-bkg {
+    width: 40vw;
+    opacity: 0.1;
+    pointer-events: none;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+.coin-links {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.coin-links:hover {
+    color: #E8E972;
 }
 
 /* House keeping stuff */
@@ -306,4 +442,18 @@ input[type=number] {
 
 ::placeholder {
     color: #71b676;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input,
+textarea {
+    color: #71b676;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc;
+    text-shadow: none;
+    -webkit-text-fill-color: initial;
 }
