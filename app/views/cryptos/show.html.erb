@@ -1,24 +1,26 @@
+<br><br><br><br><br>
 <div class="crypto-single-container">
     <div class="row">
         <div class="column">
             <div class="crypto-header">
                 <%= image_tag(@crypto.logo, :style => "width: 100px;") %>
-            <h1><%= @crypto.name %></h1>
+                <h1><%= @crypto.name %></h1>
             </div>
             <h3 style="line-height:5px;"><span>Symbol:</span></h3>
             <p style="font-size: 30px; line-height: 20px;"><%= @crypto.symbol %></p>
-          
+
             <h3 style="line-height:5px;"><span>Description:</span></h3>
             <p><%= @crypto.description %></p>
+            <a href="/cryptos"><button class="new-btn">Back to Market</button></a>
         </div>
-        <div class="column">
-            <h2 style="font-size: 40px;">Current Value:</h2>
-            <h2>$<%= @crypto.value.round(2) %> /USD</h2>
-            <hr>
+        <div class="column2">
+            <h2 style="font-size: 30px; font-weight: 100; margin:0;">Current Value</h2>
+            <h1 style="font-size: 100px; margin: 0;font-weight:400;">$<%= @crypto.value.round(2) %></h1>
+            <h2 style="font-size: 60px; font-weight: 400; margin:0; color:#E8E972">/USD</h2>
 
-            <a href="/cryptos"><button>Back to Crypto List</button></a>
-
+            
             <div class="coin-bkg"><%= image_tag(@crypto.logo, :class => "coin-img-bkg") %></div>
+
         </div>
     </div>
 </div>

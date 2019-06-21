@@ -45,6 +45,12 @@ ul {
     top: 8px;
 }
 
+.filters-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
 li a {
     display: block;
@@ -98,7 +104,7 @@ span {
 
 .navbar {
     background-color: skyblue;
-    background: linear-gradient(30deg, #5b59da, #7cc4f2);
+    background: linear-gradient(30deg, #737FF9, #65CDDB);
 }
 
 .button {
@@ -198,7 +204,21 @@ span {
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
     color: #71B676;
+}
 
+select {
+     border-radius: 40px;
+     height: 50px;
+     width: 150px;
+     border: none;
+     font-size: 18px;
+     margin-top: 20px;
+     padding-left: 30px;
+     padding-top: 10px;
+     font-family: 'Montserrat',
+     sans-serif;
+     font-weight: 100;
+     color: #71B676;
 }
 
 
@@ -314,7 +334,6 @@ span {
     display: flex;
     flex-direction: row;
     justify-content: left;
-    margin-left: 15%;
 }
 
 .column {
@@ -322,8 +341,18 @@ span {
     flex-direction: column;
     text-align: left;
     justify-content: center;
-    margin-right: 15%;
+    margin-left: 10%;
+    flex: 1 0 0;
 }
+.column2 {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: center;
+    margin-right: 10%;
+    flex: 1 0 0;
+}
+
 
 .column p {
     margin: 5px;
@@ -385,6 +414,7 @@ span {
     flex-direction: column;
     z-index: 0;
 }
+
 .sell-container,
 .buy-container {
     position: relative;
@@ -392,6 +422,15 @@ span {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     font-weight: 100;
+}
+
+.trades-container {
+     position: relative;
+     z-index: 30;
+     font-family: 'Montserrat',
+     sans-serif;
+     font-size: 25px;
+     font-weight: 100;
 }
 
 .edit-container {
@@ -451,11 +490,11 @@ span {
 .coin-bkg {
     position: fixed;
     top: 10%;
-    left: 55%;
+    left: 40%;
 }
 
 .coin-img-bkg {
-    width: 40vw;
+    width: 70vw;
     opacity: 0.1;
     pointer-events: none;
 }
@@ -513,6 +552,4 @@ textarea::-webkit-input-placeholder {
     color: #ccc;
     text-shadow: none;
     -webkit-text-fill-color: initial;
-    v
 }
-
