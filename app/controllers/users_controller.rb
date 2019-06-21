@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     session[:user_id] = @user.id
-    redirect_to cryptos_path
+    redirect_to user_path(@user)
   end
 
   def add_funds_form
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @user.delete
     session[:user_id] = nil
-      flash[:goodbye] = "See you soon"
+    flash[:goodbye] = "Sorry to see you go"
     redirect_to landing_path
 
   end

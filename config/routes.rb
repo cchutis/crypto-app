@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
-
-  get 'wallets/index'
-  get 'wallets/show'
-  get 'banks/index'
   resources :users, only: [:index, :create]
   get '/profile/:id/edit', to: "users#edit"
   patch '/profile', to:"users#update", as: "update"
@@ -18,9 +14,9 @@ Rails.application.routes.draw do
   resources :cryptos, only: [:index, :show]
   get '/add_funds', to: "users#add_funds_form"
   patch '/add_funds', to: "users#add_funds"
+  resources :trades, only: [:index]
   get '/buy', to: "trades#buy_form", as: "buy"
   get '/sell', to: "trades#sell_form", as: "sell"
-  resources :trades, only: [:index]
   post '/trades', to: "trades#bought"
   post '/trades', to: "trades#sale"
   delete '/profile', to: "users#destroy"
