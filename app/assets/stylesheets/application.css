@@ -45,6 +45,7 @@ ul {
     top: 8px;
 }
 
+
 li a {
     display: block;
     color: white;
@@ -118,6 +119,26 @@ span {
     cursor: pointer;
 }
 
+.buy-button {
+    background-color: #E8E972;
+    background: linear-gradient(30deg, #E8E972, #fdb021);
+    width: 200px;
+    height: 50px;
+    color: white;
+    border: 0;
+    border-radius: 20px;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.buy-button:hover {
+    background-color: #71B676;
+    background: linear-gradient(30deg, #fdb021, #E8E972);
+    color: white;
+    cursor: pointer;
+}
+
 .login-button {
     background-color: #E8E972;
     background: linear-gradient(30deg, #E8E972, #fdb021);
@@ -164,6 +185,23 @@ span {
     padding-top: 10px;
     z-index: 3;
 }
+
+.dropdown-style {
+    border-radius: 40px;
+    height: 50px;
+    width: 150px;
+    border: none;
+    font-size: 18px;
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    color: #71B676;
+
+}
+
+
 
 .main-logo {
     margin-top: 0;
@@ -347,15 +385,15 @@ span {
     flex-direction: column;
     z-index: 0;
 }
-
+.sell-container,
 .buy-container {
     position: relative;
     z-index: 30;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 100;
 }
-.sell-container {
-    position: relative;
-    z-index: 30;
-}
+
 .edit-container {
     position: relative;
     z-index: 30;

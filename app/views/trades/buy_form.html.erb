@@ -3,16 +3,22 @@
     <% if flash[:message] %>
     <%= flash[:message] %>
     <% end %>
-    <br>
-    Current USD: $<%= @user.wallet %>
+    <h1>Buy Currency</h1>
+    <% if @user.wallet == 0.0 %>
+    <p>Your wallet is empty. <a href="/add_funds" style="text-decoration: underline;">Add funds here.</a></p>
+    <%else%>
+    <p>Current USD: $<%= @user.wallet %></p>
+    <%end%>
     <br>
     <%=form_for @trade do |f|%>
     <%=f.hidden_field :description, value: "Buy" %>
     <%= f.label :amount, "I'd like to spend" %>
     $<%= f.number_field :amount, :class => 'text-field' %> / USD
     <%= f.label :crypto_id, "on Currency:" %>
-    <%=f.select :crypto_id, options_for_select([["Select One", ""], ["Bitcoin"], ["Bitcoin Cash",], ["Ethereum"], ["Litecoin"], ["Stellar"], ["EOS"], ["Qtum"], ["Monero"]]), :class => 'dropdown-style' %>
-    <%= f.submit "submit" %>
+    <%= f.select :crypto_id, options_for_select([["Select One", ""], ["Bitcoin"], ["Bitcoin Cash",], ["Ethereum"], ["Litecoin"], ["Stellar"], ["EOS"], ["Qtum"], ["Monero"]]), {}, class: 'dropdown-style' %>
+    <%= button_tag type: 'submit', class: "buy-button" do %>
+    <i class="far fa-credit-card" aria-hidden="true"></i> &nbsp; Buy Now
+    <% end %>
     <% end %>
 </div>
 
