@@ -55,7 +55,7 @@ class UsersController < ApplicationController
       @coin_total_value += v
     end
     @coin_total_value
-    sold_trades = Trade.all.select do |trade|
+    sold_trades = @user.trades.select do |trade|
       trade.description == "Sell"
     end
     @sold_trades_total = 0
@@ -66,7 +66,12 @@ class UsersController < ApplicationController
 
   end
 
-
+  def destroy
+    @user = User.find(session[:user_id])
+    @user.delete
+    session[:user_id] = nil
+    redirect_to landing_path
+  end
 private
 
   def user_params

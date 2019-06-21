@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :trades, only: [:index]
   post '/trades', to: "trades#bought"
   post '/trades', to: "trades#sale"
+  delete '/profile', to: "users#destroy"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

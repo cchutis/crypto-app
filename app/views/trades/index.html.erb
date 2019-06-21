@@ -7,7 +7,7 @@
 
 <%= form_tag("/trades", method: "get") do %>
 <%= label_tag(:filter_coin, "Filter By Coin") %>
-<%= select_tag(:coin, options_for_select(['Bitcoin','Bitcoin Cash', "Etherium", "litecoin", "Stellar"]), prompt: "select") %>
+<%= select_tag(:coin, options_for_select(['Bitcoin','Bitcoin Cash', "Etherium", "litecoin", "Stellar", "EOS", "Monero", "Qtum"]), prompt: "select") %>
 <%= submit_tag("Search") %>
 <%end%>
 <a href="/trades"><button>Reset</button></a>
