@@ -1,27 +1,38 @@
 <div class="trades-container">
-<%= form_tag("/trades", method: "get") do %>
-<%= label_tag(:filter_type, "Filter By Type") %>
-<%= select_tag(:description, options_for_select(['Buy','Sell']), prompt: "select") %>
-<%= submit_tag("Search") %>
-<%end%>
+  <h1 style="margin:0 0 20px 0;">Transaction History</h1>
+  <div class="filters-container">
+    <%= form_tag("/trades", method: "get") do %>
+    <%= label_tag(:filter_type, "Filter By Type") %>
+    <%= select_tag(:description, options_for_select(['Buy','Sell']), prompt: "select") %>
+    <%= button_tag type: 'submit', class: "button" do %>
+    Filter
+    <% end %>
+    <%end%>
+    &nbsp;&nbsp;&nbsp;
+    <%= form_tag("/trades", method: "get") do %>
+    <%= label_tag(:filter_coin, "Filter By Coin") %>
+    <%= select_tag(:coin, options_for_select(['Bitcoin','Bitcoin Cash', "Etherium", "litecoin", "Stellar"]), prompt: "select") %>
+    <%= button_tag type: 'submit', class: "button" do %>
+    Filter
+    <% end %> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/trades"><button class="button">Reset</button></a>
+    <%end%>
+  </div>
+  <%@trades.each do |trade| %>
+  <hr>
 
-<%= form_tag("/trades", method: "get") do %>
-<%= label_tag(:filter_coin, "Filter By Coin") %>
-<%= select_tag(:coin, options_for_select(['Bitcoin','Bitcoin Cash', "Etherium", "litecoin", "Stellar"]), prompt: "select") %>
-<%= submit_tag("Search") %>
-<%end%>
-<a href="/trades"><button>Reset</button></a>
-<%@trades.each do |trade| %>
-<hr>
-<body>
-  <span>Type:</span> <%= trade.description %>| <span>Coin:</span> <%= trade.crypto.name %>| <span>Amount</span> <%= trade.amount.round(8) %>| <span>Price:</span> $<%= trade.price  %>|
-  <span>Date of Trade:</span> <%= trade.created_at.in_time_zone("America/New_York").strftime("%A, %B %d, %Y at %I:%M:%S %p")  %>
+  <body>
+    <span>Transaction:</span> <%= trade.description %> | <span>Coin:</span>
+    <%=image_tag(trade.crypto.logo, :style => 'height: 20px;')%>&nbsp;<%= trade.crypto.name %> | <span>Quantity:</span>
+    <%= trade.amount.round(8) %> | <span>Price:</span> $<%= trade.price  %> |
+    <span>Date of Trade:</span>
+    <%= trade.created_at.in_time_zone("America/New_York").strftime("%A, %B %d, %Y at %I:%M:%S %p")  %>
 
-</body>
-<hr>
+  </body>
+  <hr>
 
 
-<% end %>
+  <% end %>
 
 </div>
 <div class="new-container">
