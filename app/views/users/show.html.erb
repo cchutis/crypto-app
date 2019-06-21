@@ -17,7 +17,7 @@
                 <% if @user.bitcoin > 0.0 %>
                 <hr>
                 <p><span>Bitcoin:</span> <%= @user.bitcoin.round(8) %> / BTC</p>
-                <% if (@user.bitcoin * @bitcoin.value) >= @coins_prices[@bitcoin.id] %><p style="color:green">
+                <% if ((@user.bitcoin * @bitcoin.value)) >= @coins_prices[@bitcoin.id] %><p style="color:green">
                     <%else%><p style="color:red"><%end%>
                         <span>Value:</span>
                         $<%= number_with_delimiter((@user.bitcoin * @bitcoin.value).round(2), :delimiter => ',') %> /
@@ -26,7 +26,7 @@
                     <% if @user.bitcoin_cash > 0.0 %>
                     <hr>
                     <p><span>Bitcoin Cash:</span> <%= @user.bitcoin_cash.round(8) %> / BCH</p>
-                    <% if (@user.bitcoin_cash * @bitcoin_cash.value) >= @coins_prices[@bitcoin_cash.id] %><p
+                    <% if ((@user.bitcoin_cash * @bitcoin_cash.value)) >= @coins_prices[@bitcoin_cash.id] %><p
                         style="color:green">
                         <%else%><p style="color:red"><%end%>
                             <span>Value:</span>
@@ -36,7 +36,7 @@
                         <% if @user.litecoin > 0.0 %>
                         <hr>
                         <p><span>Litecoin:</span> <%= @user.litecoin.round(8) %> / LTC</p>
-                        <% if (@user.litecoin * @litecoin.value) >= @coins_prices[@litecoin.id] %><p style="color:green">
+                        <% if ((@user.litecoin * @litecoin.value)) >= @coins_prices[@litecoin.id] %><p style="color:green">
                             <%else%><p style="color:red"><%end%>
                                 <span>Value:</span>
                                 $<%= number_with_delimiter((@user.litecoin * @litecoin.value).round(2), :delimiter => ',') %>
@@ -102,8 +102,9 @@
                                                     <%end%>
 
 
-                    <% total = ((@user.qtum * @qtum.value)+(@user.monero * @monero.value)+(@user.eos * @eos.value)+(@user.stellar * @stellar.value)+(@user.ethereum * @ethereum.value)+(@user.litecoin * @litecoin.value)+(@user.bitcoin_cash * @bitcoin_cash.value)+(@user.bitcoin * @bitcoin.value)- @coin_total_value).round(8)%>
-                    <% total_percentage = (((@user.qtum * @qtum.value)+(@user.monero * @monero.value)+(@user.eos * @eos.value)+(@user.stellar * @stellar.value)+(@user.ethereum * @ethereum.value)+(@user.litecoin * @litecoin.value)+(@user.bitcoin_cash * @bitcoin_cash.value)+(@user.bitcoin * @bitcoin.value)/ @coin_total_value)/100).round(2)%>
+                    <% total = ((@user.qtum * @qtum.value)+(@user.monero * @monero.value)+(@user.eos * @eos.value)+(@user.stellar * @stellar.value)+(@user.ethereum * @ethereum.value)+(@user.litecoin * @litecoin.value)+(@user.bitcoin_cash * @bitcoin_cash.value)+(@user.bitcoin * @bitcoin.value)- @coin_total_value + @sold_trades_total).round(8)%>
+                    <% total_percentage = ((((@user.qtum * @qtum.value)+(@user.monero * @monero.value)+(@user.eos * @eos.value)+(@user.stellar * @stellar.value)+(@user.ethereum * @ethereum.value)+(@user.litecoin * @litecoin.value)+(@user.bitcoin_cash * @bitcoin_cash.value)+(@user.bitcoin * @bitcoin.value)+@sold_trades_total)/ @coin_total_value)/100).round(2)%>
+
       <% if total < 0.0 %>
       <p style="color:red;">Net Loss: $<%= total %> <br>Percentage Loss: <%= total_percentage  %>%</p>
       <%else%>
