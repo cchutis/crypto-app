@@ -118,6 +118,24 @@ span {
     cursor: pointer;
 }
 
+.login-button {
+    background-color: #E8E972;
+    background: linear-gradient(30deg, #E8E972, #fdb021);
+    width: 250px;
+    height: 50px;
+    color: white;
+    border: 0;
+    border-radius: 40px;
+    font-size: 18px;
+}
+
+.login-button:hover {
+    background-color: #71B676;
+    background: linear-gradient(30deg, #fdb021, #E8E972);
+    color: white;
+    cursor: pointer;
+}
+
 .app-btn {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -449,6 +467,7 @@ input,
 textarea {
     color: #71b676;
     font-family: 'Montserrat', sans-serif;
+    autocomplete: off;
 }
 
 input::-webkit-input-placeholder,
