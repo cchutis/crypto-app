@@ -52,8 +52,8 @@ class UsersController < ApplicationController
       @coins_prices[crypto.id] = @user.coin_avg_price(crypto)
     end
     @coin_total_value = 0.00
-    @coins_prices.each do |k,v|
-      @coin_total_value += v
+    @coins_prices.each do |coin , value|
+      @coin_total_value += value
     end
     @coin_total_value
     sold_trades = @user.trades.select do |trade|
