@@ -9,7 +9,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/9c26ad6839.js"></script>
 </head>
 
@@ -17,25 +17,27 @@
     <div id="bkg">
       <% if !current_page?(controller: 'users', action: 'landing') %>
       <ul class="navbar">
-        <li><%= image_tag("crypto.svg", {:style => "padding: 5px; width:300px;"}) %></li>
+        <li><%= image_tag("crypto.svg", {:style => "padding: 10px 8px 0 10px; width:300px;"}) %></li>
         <li><a href="/profile"><i class="fas fa-user"></i> Profile</a></li>
         <li><a href="/add_funds"><i class="fas fa-money-bill-wave"></i> Add Funds</a></li>
         <li><a href="/cryptos"><i class="fas fa-chart-line"></i> Market</a></li>
         <li><a href="/buy"><i class="fas fa-coins"></i> Buy Coins</a></li>
         <li><a href="/sell"><i class="fas fa-money-check-alt"></i> Sell Coins</a></li>
         <li><a href="/trades"><i class="fas fa-history"></i> Trade History</a></li>
+      </ul>
+      <ul class="status-bar">
         <% if logged_in? %>
-        <li>
+        <li style="color:white;">
           <%=button_to "Logout", '/logout', :method => :delete, :class => 'button'%>
         </li>
         <%else%>
-        <li>
+        <li style="color:white;">
           <%=button_to "Login", '/login', :method => :get, :class => 'button'%>
         </li>
         <%end%>
       </ul>
       <%end%>
-
+<div style="clear: both;"></div>
       <center>
 
         <br>
