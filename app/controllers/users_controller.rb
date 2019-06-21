@@ -2,20 +2,17 @@ class UsersController < ApplicationController
   before_action :authorized?, only: [:add_funds_form, :show]
   def new
     @user = User.new
-
   end
 
   def create
     @user = User.create(user_params)
-
     session[:user_id] = @user.id
-
     redirect_to cryptos_path
   end
 
   def add_funds_form
     @user = User.find(session[:user_id])
-    end
+  end
 
   def add_funds
     @user = User.find(session[:user_id])
@@ -26,8 +23,7 @@ class UsersController < ApplicationController
 
   def edit
     !authorized?
-      @user = User.find(session[:user_id])
-
+    @user = User.find(session[:user_id])
   end
 
   def show
@@ -35,9 +31,8 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @cryptos = Crypto.all
     @cryptos.each do |crypto|
-          crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
-        end
-
+      crypto.update(value: Coinmarketcap.coin(crypto.coinbase_id)["data"]["quotes"]["USD"]["price"].round(2))
+    end
     @bitcoin = Crypto.find_by(name: "Bitcoin")
     @bitcoin_cash = Crypto.find_by(name: "Bitcoin Cash")
     @litecoin = Crypto.find_by(name: "Litecoin")
@@ -63,7 +58,6 @@ class UsersController < ApplicationController
     @sold_trades_total +=  sold.price
     end
     @sold_trades_total = (@sold_trades_total * 2)
-
   end
 
   def destroy
@@ -72,14 +66,13 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     redirect_to landing_path
   end
-private
+
+  private
 
   def user_params
     params.require(:user).permit(:name,:username,:password,:email,:phone, :wallet,:bitcoin,:litecoin,:bitcoin_cash,:etherium,:stellar)
   end
 
   def landing
-
   end
-
 end
