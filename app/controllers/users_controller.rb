@@ -64,7 +64,9 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @user.delete
     session[:user_id] = nil
+      flash[:goodbye] = "See you soon"
     redirect_to landing_path
+
   end
 
   private
