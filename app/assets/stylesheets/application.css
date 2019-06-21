@@ -45,11 +45,19 @@ ul {
     top: 8px;
 }
 
+.container {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .filters-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 20px;
+}
+
+.selector {
+    font-size: 25px;
 }
 
 li a {
@@ -166,8 +174,9 @@ span {
 .app-btn {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    width: 140px;
-    height: 35px;
+    font-size: 20px;
+    width: 180px;
+    height: 45px;
     border-radius: 40px;
     margin: 10px;
     border: 0;
