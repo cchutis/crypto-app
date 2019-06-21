@@ -1,3 +1,5 @@
+<div class="buy-container">
+    
 <% if flash[:message] %>
 <%= flash[:message] %>
 <% end %>
@@ -13,3 +15,8 @@ Wallet:<%= @user.wallet %>
 <%= f.number_field :amount%>
 <%= f.submit "submit" %>
 <% end %>
+</div>
+
+<div class="new-container">
+    <%= image_tag('triangles.svg', :class => 'triangles') %>
+</div>

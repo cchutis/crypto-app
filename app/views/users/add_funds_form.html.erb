@@ -1,7 +1,12 @@
-<div class="wallet-container">
-    <h1>Add funds to your wallet</h1>
-    <%= form_for(@user, url: '/add_funds') do |f|%>
-    <p><%= f.number_field :wallet, value: nil, autofocus: true, :class => 'wallet-field' %></p>
-    <p><%= f.button '<i class="far fa-credit-card"></i> Add Funds'.html_safe, :class => 'wallet-btn' %></p>
-    <% end %>
+<div class="wallet-outer">
+    <div class="wallet-container">
+        <h1>Add funds to your wallet</h1>
+        <%= form_for(@user, url: '/add_funds') do |f|%>
+        <p><%= f.number_field :wallet, value: nil, autofocus: true, :class => 'wallet-field' %></p>
+        <p><%= f.button '<i class="far fa-credit-card"></i> Add Funds'.html_safe, :class => 'wallet-btn' %></p>
+        <% end %>
+    </div>
+</div>
+<div class="new-container">
+    <%= image_tag('triangles.svg', :class => 'triangles') %>
 </div>

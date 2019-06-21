@@ -73,7 +73,6 @@ class TradesController < ApplicationController
 
     @user = User.find(session[:user_id])
     crypto = Crypto.find_by(name: params[:trade][:crypto_id])
-    byebug
     if crypto.name == "Bitcoin Cash"
       current_crypto = crypto.name.downcase.split(" ").join("_").to_sym
     else

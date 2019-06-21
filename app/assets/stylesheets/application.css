@@ -32,6 +32,8 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    position: relative;
+    z-index: 30;
 }
 
 .navbar li {
@@ -278,21 +280,31 @@ span {
     align-content: center;
 }
 
+.wallet-outer {
+      position: relative;
+      z-index: 30;
+}
+
 .wallet-btn {
     font-size: 40px;
     width: 300px;
     height: 80px;
     border-radius: 40px;
     padding: 0 20px 0 20px;
-    background-color: #E8E972;
-    color: #71B676;
+    background-color: #7cc4f2;
+    color: white;
     border: 0;
 }
 
 .wallet-btn:hover {
-    background-color: #7cc4f2;
+    background-color: #E8E972;
     color: white;
     cursor: pointer;
+}
+
+.login-container {
+     position: relative;
+     z-index: 30;
 }
 
 .wallet-field {
@@ -307,16 +319,46 @@ span {
     color: #71b676;
 }
 
+.container {
+    position: relative;
+    z-index: 30;
+}
+
 .new-container {
     display: flex;
     flex-direction: column;
+    z-index: 0;
 }
 
+.buy-container {
+    position: relative;
+    z-index: 30;
+}
+.sell-container {
+    position: relative;
+    z-index: 30;
+}
+.edit-container {
+    position: relative;
+    z-index: 30;
+}
+.trades-container {
+    position: relative;
+    z-index: 30;
+}
+.cryptos-container {
+    z-index: 10;
+    position: fixed;
+    left: 10%;
+}
 .triangles {
     width: 100vw;
     height: 100vh;
     position: fixed;
+    top: 0;
+    left: 20%;
     z-index: 0;
+    opacity: 0.3;
 }
 
 .new-btn {
