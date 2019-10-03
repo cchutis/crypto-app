@@ -8,7 +8,8 @@
                 <p><span class="selector">Email:</span> <%= @user.email %></p>
                 <p><span class="selector">Phone Number:</span> <%= number_to_phone(@user.phone) %></p>
                 <p><%= button_to "Edit Profile", "/profile/#{@user.id}/edit", :method => :get, :class => "app-btn" %>
-                    <%= button_to "Add Funds", '/add_funds', :method => :get, :class => "app-btn" %></p>
+                    <%= button_to "Add Funds", '/add_funds', :method => :get, :class => "app-btn" %>
+                    <%= button_to "Delete", {:action => "destroy"}, :method  => :delete, :class => "app-btn" %></p>
             </div>
 
             <div class="column">
@@ -85,7 +86,7 @@
       <p style="color:green;">Net Gain: $<%= total.round(2) %> <br>Percentage Gain: <%= total_percentage  %>%</p>
       <%end%>
 
-        <%= button_to "Delete", {:action => "destroy"}, :method  => :delete %>
+        
             </div>
         </div>
     </div>
