@@ -50,11 +50,11 @@ logo: "xmr.svg",
 symbol: Coinmarketcap.coin(328)["data"]["symbol"],
 value: Coinmarketcap.coin(328)["data"]["quotes"]["USD"]["price"],
 coinbase_id: 328 )
-# QTUM Generator
-Crypto.create(name: Coinmarketcap.coin(1684)["data"]["name"],
-description: "Qtum (pronounced “quantum”) is a cryptocurrency that seeks to add Ethereum smart contracts to Bitcoin’s blockchain while using proof of stake for verification. Qtum’s goal is to increase the interoperability of smart contract applications.",
-logo: "qtum.svg",
-symbol: Coinmarketcap.coin(1684)["data"]["symbol"],
-value: Coinmarketcap.coin(1684)["data"]["quotes"]["USD"]["price"],
-coinbase_id: 1684 )
+# # QTUM Generator
+# Crypto.create(name: Coinmarketcap.coin(1684)["data"]["name"],
+# description: "Qtum (pronounced “quantum”) is a cryptocurrency that seeks to add Ethereum smart contracts to Bitcoin’s blockchain while using proof of stake for verification. Qtum’s goal is to increase the interoperability of smart contract applications.",
+# logo: "qtum.svg",
+# symbol: Coinmarketcap.coin(1684)["data"]["symbol"],
+# value: Coinmarketcap.coin(1684)["data"]["quotes"]["USD"]["price"],
+# coinbase_id: 1684 )
 # Golddoubloons Generator
