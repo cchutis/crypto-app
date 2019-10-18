@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_06_14_184746) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cryptos", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -27,8 +30,8 @@ ActiveRecord::Schema.define(version: 2019_06_14_184746) do
     t.string "description"
     t.float "amount"
     t.float "price"
-    t.integer "user_id"
-    t.integer "crypto_id"
+    t.bigint "user_id"
+    t.bigint "crypto_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["crypto_id"], name: "index_trades_on_crypto_id"
@@ -54,4 +57,6 @@ ActiveRecord::Schema.define(version: 2019_06_14_184746) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "trades", "cryptos"
+  add_foreign_key "trades", "users"
 end
